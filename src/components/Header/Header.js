@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Container from "../Shared/Container"
 import logo from "../../images/header-logo.png"
 import Button from "../Shared/Button"
+import { mediaQuery } from "../../utils/styles"
 
 const Root = styled(Container)`
   color: red;
@@ -13,23 +14,17 @@ const Root = styled(Container)`
   right: 0;
   left: 0;
   width: 100%;
-`
-
-const ActionContainer = styled.div`
-  display: flex;
   align-items: center;
-`
-
-const Anchor = styled.a`
-  color: var(--dark-grey);
-  text-decoration: none;
-  margin-right: 2rem;
 `
 
 const Logo = styled.img`
   width: 100%;
   height: auto;
-  max-width: 250px;
+  max-width: 150px;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    max-width: 250px;
+  }
 `
 
 const HeaderButton = styled(Button)`
@@ -39,10 +34,7 @@ const HeaderButton = styled(Button)`
 const Header = () => (
   <Root as="header">
     <Logo src={logo} alt="Growly Logo" />
-    <ActionContainer>
-      <Anchor href="">How It Works</Anchor>
-      <HeaderButton text="Request Beta Access" />
-    </ActionContainer>
+    <HeaderButton text="Request Beta Access" />
   </Root>
 )
 

@@ -91,10 +91,7 @@ const Hero = () => {
           </HeroSubtext>
           <StyledButton text="Request beta access" />
         </TextContainer>
-        <StyledImg
-          fluid={data.heroImg.childImageSharp.fluid}
-          // style={{ ...backgroundGatsbyImage, left: "-50%", width: "initial" }}
-        />
+        <StyledImg fluid={data.heroImg.childImageSharp.fluid} />
       </StyledContainer>
     </Root>
   )
@@ -107,14 +104,14 @@ export const HERO_QUERY = graphql`
     heroBg: file(relativePath: { eq: "hero-bg.png" }) {
       childImageSharp {
         fluid(quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
     heroImg: file(relativePath: { eq: "hero-image.png" }) {
       childImageSharp {
         fluid(quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
