@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { mediaQuery } from "../../utils/styles"
 
-const Container = styled.div`
+const ContentContainer = styled.div`
   padding: 1rem 1.5rem;
   width: 100%;
   margin: 0 auto;
@@ -12,4 +12,4 @@ const Container = styled.div`
   }
 `
 
-export default Container
+export default ContentContainer

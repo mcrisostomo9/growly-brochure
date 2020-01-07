@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import Container from "../Shared/Container"
+import ContentContainer from "../Shared/ContentContainer"
 import logo from "../../images/header-logo.png"
 import Button from "../Shared/Button"
 import { mediaQuery } from "../../utils/styles"
 
-const Root = styled(Container)`
+const Root = styled(ContentContainer)`
   color: red;
   display: flex;
   justify-content: space-between;

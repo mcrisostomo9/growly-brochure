@@ -3,16 +3,17 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { backgroundGatsbyImage, mediaQuery } from "../../utils/styles"
-import Container from "../Shared/Container"
+import ContentContainer from "../Shared/ContentContainer"
 import Button from "../Shared/Button"
 import SectionTitle from "../Shared/SectionTitle"
+import SectionSubtitle from "../Shared/SectionSubtitle"
 
 const Root = styled.div`
   position: relative;
   padding: 7rem 0 3rem;
 `
 
-const StyledContainer = styled(Container)`
+const StyledContainer = styled(ContentContainer)`
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -37,28 +38,12 @@ const TextContainer = styled.div`
 `
 
 const HeroTitle = styled(SectionTitle)`
-  margin-bottom: 0;
-
   span {
     display: block;
   }
 `
 
-const HeroSubtext = styled.p`
-  margin: 1rem 0 0;
-  font-size: 1.25rem;
-
-  @media (min-width: ${mediaQuery.m1024}) {
-    font-size: 1.25rem;
-  }
-
-  @media (min-width: ${mediaQuery.m1280}) {
-  }
-
-  @media (min-width: ${mediaQuery.m1440}) {
-    font-size: 1.5rem;
-  }
-`
+const HeroSubtext = styled(SectionSubtitle)``
 
 const StyledButton = styled(Button)`
   margin-top: 2rem;
@@ -79,7 +64,6 @@ const Hero = () => {
       <Img
         fluid={data.heroBg.childImageSharp.fluid}
         style={{ ...backgroundGatsbyImage }}
-        // imgStyle={{ objectPosition: "75%" }}
       />
       <StyledContainer>
         <TextContainer>
