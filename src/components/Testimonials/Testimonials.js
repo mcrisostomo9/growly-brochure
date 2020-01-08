@@ -42,6 +42,7 @@ const GridTestimonial = styled.div`
 const SingleTestimonial = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
 `
 
 const TestimonialImg = styled.img`
