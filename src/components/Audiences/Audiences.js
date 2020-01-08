@@ -23,6 +23,7 @@ const BoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
   @media (min-width: ${mediaQuery.m768}) {
     margin-top: 3rem;
@@ -33,6 +34,12 @@ const BoxContainer = styled.div`
 const StatisticBox = styled.div`
   flex-basis: 25%;
   margin-bottom: 1rem;
+  max-width: 330px;
+  width: 100%;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    width: initial;
+  }
 `
 
 const InnerContainer = styled.div`
@@ -48,14 +55,21 @@ const StatImage = styled.img``
 const Number = styled.span`
   color: #fff;
   font-size: 2.5rem;
+  margin-left: 1rem;
 
   @media (min-width: ${mediaQuery.m768}) {
     font-size: 2.25rem;
   }
-  @media (min-width: ${mediaQuery.m1024}) {
+
+  @media (min-width: ${mediaQuery.m1280}) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1440}) {
     font-size: 3rem;
   }
-  @media (min-width: ${mediaQuery.m1440}) {
+
+  @media (min-width: ${mediaQuery.m1680}) {
     font-size: 4rem;
   }
 `

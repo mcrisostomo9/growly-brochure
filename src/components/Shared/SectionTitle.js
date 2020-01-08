@@ -14,6 +14,10 @@ const SectionTitle = styled.h2`
   }
 
   @media (min-width: ${mediaQuery.m1440}) {
+    font-size: 3.25rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1680}) {
     font-size: 3.625rem;
   }
 `

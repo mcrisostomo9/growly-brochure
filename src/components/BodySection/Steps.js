@@ -14,6 +14,14 @@ const StepsSection = styled(ContentContainer)`
   align-items: center;
 
   @media (min-width: ${mediaQuery.m768}) {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  @media (min-width: ${mediaQuery.m1024}) {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  @media (min-width: ${mediaQuery.m1280}) {
     grid-template-columns: 1fr 1fr;
   }
 `
@@ -34,22 +42,44 @@ const StyledSectionTitle = styled(SectionTitle)`
   span {
     display: block;
   }
+
+  text-align: center;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    text-align: left;
+  }
 `
 
-const StyledSectionSubtitle = styled(SectionSubtitle)``
+const StyledSectionSubtitle = styled(SectionSubtitle)`
+  text-align: center;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    text-align: left;
+  }
+`
 
 const StepsList = styled.div`
-  margin-top: 3rem;
+  margin-top: 2rem;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-row-gap: 2rem;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    margin-top: 2.25rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1024}) {
+    margin-top: 2.5rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1280}) {
+    margin-top: 3rem;
+  }
 `
 
 const StepContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 1fr;
-  grid-column-gap: 1rem;
+  display: flex;
+  flex-direction: row;
 `
 
 const Icon = styled.img`
@@ -58,11 +88,26 @@ const Icon = styled.img`
   align-self: center;
 `
 
+const StepTextContainer = styled.div`
+  margin-left: 1.625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
 const StepTitle = styled.div`
   font-family: "Montserrat", serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.25rem;
   align-self: end;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1024}) {
+    font-size: 1.875rem;
+  }
 `
 const StepBody = styled.div`
   font-family: "Lato", sans-serif;
@@ -114,8 +159,10 @@ const Steps = ({ logo }) => {
           {StepsArray.map(step => (
             <StepContainer key={step.title}>
               <Icon src={step.icon} />
-              <StepTitle>{step.title}</StepTitle>
-              <StepBody>{step.body}</StepBody>
+              <StepTextContainer>
+                <StepTitle>{step.title}</StepTitle>
+                <StepBody>{step.body}</StepBody>
+              </StepTextContainer>
             </StepContainer>
           ))}
         </StepsList>

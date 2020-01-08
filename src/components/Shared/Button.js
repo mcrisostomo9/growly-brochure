@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { mediaQuery } from "../../utils/styles"
+import { Context } from "../../context/Context"
 
 const Root = styled.button`
   display: inline-block;
@@ -23,9 +24,11 @@ const Root = styled.button`
   }
 `
 
-const Button = ({ text, onClick, className }) => {
+const Button = ({ text, className }) => {
+  const { toggleModalOpen } = useContext(Context)
+
   return (
-    <Root onClick={onClick} className={className}>
+    <Root onClick={toggleModalOpen} className={className}>
       {text}
     </Root>
   )

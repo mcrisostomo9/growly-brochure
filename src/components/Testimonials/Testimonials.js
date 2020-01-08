@@ -21,7 +21,11 @@ const StyledSectionSubtitle = styled(SectionSubtitle)`
 `
 
 const StyledContentContainer = styled(ContentContainer)`
-  margin: 3rem auto 0;
+  margin: 1rem auto 0;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    margin-top: 2rem;
+  }
 `
 
 const GridTestimonial = styled.div`
@@ -29,7 +33,7 @@ const GridTestimonial = styled.div`
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 2rem;
 
-  @media (min-width: ${mediaQuery.m768}) {
+  @media (min-width: ${mediaQuery.m1024}) {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
@@ -48,16 +52,28 @@ const TestimonialImg = styled.img`
 const TextContainer = styled.div`
   text-align: left;
   margin-left: 1rem;
+  @media (min-width: ${mediaQuery.m1024}) {
+    max-width: 425px;
+  }
 `
 
 const Name = styled.div`
   font-family: "Montserrat", serif;
   font-weight: 700;
   font-size: 1.875rem;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1280}) {
+    font-size: 1.875rem;
+  }
 `
 
 const TestimonialText = styled.p`
   margin: 1rem 0 0;
+  font-size: 1.125rem;
 `
 
 const Position = styled.div`
@@ -112,7 +128,7 @@ const Testimonials = () => {
       <StyledContentContainer>
         <GridTestimonial>
           {TestimonialArray.map(i => (
-            <SingleTestimonial>
+            <SingleTestimonial key={i.name}>
               <TestimonialImg src={i.img} />
               <TextContainer>
                 <Name>{i.name}</Name>

@@ -15,6 +15,7 @@ const Root = styled(ContentContainer)`
   left: 0;
   width: 100%;
   align-items: center;
+  //z-index: 1;
 `
 
 const Logo = styled.img`
@@ -28,7 +29,7 @@ const Logo = styled.img`
 `
 
 const HeaderButton = styled(Button)`
-  font-weight: 700;
+  //font-weight: 700;
 `
 
 const Header = () => (
