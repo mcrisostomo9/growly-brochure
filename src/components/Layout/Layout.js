@@ -3,17 +3,14 @@ import PropTypes from "prop-types"
 import "./normalize.css"
 import "./layout.css"
 import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </>
   )
 }
