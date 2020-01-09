@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import SectionContainer from "../Shared/SectionContainer"
-import bg from "../../images/body-bg.png"
 import { graphql, useStaticQuery } from "gatsby"
 import Steps from "./Steps"
 import HowItWorks from "./HowItWorks"
+import bg from "../../images/body-bg.png"
 
 const StyledSectionContainer = styled(SectionContainer)`
   background: url(${bg}) no-repeat bottom;

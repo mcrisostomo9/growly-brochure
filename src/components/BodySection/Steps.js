@@ -15,6 +15,7 @@ const StepsSection = styled(ContentContainer)`
 
   @media (min-width: ${mediaQuery.m768}) {
     grid-template-columns: 2fr 1fr;
+    padding-right: 0rem;
   }
 
   @media (min-width: ${mediaQuery.m1024}) {
