@@ -46,8 +46,19 @@ const SingleTestimonial = styled.div`
 `
 
 const TestimonialImg = styled.img`
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+
+  @media (min-width: ${mediaQuery.m1024}) {
+    max-width: 125px;
+    max-height: 125px;
+  }
+
+  @media (min-width: ${mediaQuery.m1440}) {
+    max-width: 150px;
+    max-height: 150px;
+  }
 `
 
 const TextContainer = styled.div`
