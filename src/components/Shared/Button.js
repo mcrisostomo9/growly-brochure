@@ -33,11 +33,11 @@ const Root = styled.button`
   }
 `
 
-const Button = ({ text, className }) => {
+const Button = ({ text, className, onClick }) => {
   const { toggleModalOpen } = useContext(Context)
 
   return (
-    <Root onClick={toggleModalOpen} className={className}>
+    <Root onClick={onClick} className={className}>
       {text}
     </Root>
   )

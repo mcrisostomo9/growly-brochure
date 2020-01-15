@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import ContentContainer from "../Shared/ContentContainer"
 import { graphql, useStaticQuery } from "gatsby"
@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import Button from "../Shared/Button"
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa"
 import { mediaQuery } from "../../utils/styles"
+import { Context } from "../../context/Context"
 
 const Root = styled.footer`
   background: var(--dark-grey);
@@ -68,6 +69,8 @@ const SocialArray = [
 
 const Footer = () => {
   const data = useStaticQuery(LOGO_QUERY)
+  const { toggleModalOpen } = useContext(Context)
+
   return (
     <Root>
       <StyledContentContainer>
@@ -78,7 +81,7 @@ const Footer = () => {
           </TextContainer>
         </LeftContainer>
         <RightContainer>
-          <StyledButton text="Request Beta access" />
+          <StyledButton text="Request Beta access" onClick={toggleModalOpen} />
           <IconContainer>
             {SocialArray.map(i => (
               <SocialIcon href={i.link} target="_blank" key={i.link}>

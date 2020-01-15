@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import SectionContainer from "../Shared/SectionContainer"
 import SectionTitle from "../Shared/SectionTitle"
@@ -6,6 +6,7 @@ import SectionSubtitle from "../Shared/SectionSubtitle"
 import ContentContainer from "../Shared/ContentContainer"
 import { mediaQuery } from "../../utils/styles"
 import Button from "../Shared/Button"
+import { Context } from "../../context/Context"
 
 const StyledSectionContainer = styled(SectionContainer)`
   background: var(--light-grey);
@@ -145,6 +146,8 @@ const TestimonialArray = [
 ]
 
 const Testimonials = () => {
+  const { toggleModalOpen } = useContext(Context)
+
   return (
     <StyledSectionContainer>
       <StyledSectionTitle>Take their word for it</StyledSectionTitle>
@@ -164,7 +167,7 @@ const Testimonials = () => {
             </SingleTestimonial>
           ))}
         </GridTestimonial>
-        <StyledButton text="Request beta access" />
+        <StyledButton text="Request beta access" onClick={toggleModalOpen} />
       </StyledContentContainer>
     </StyledSectionContainer>
   )

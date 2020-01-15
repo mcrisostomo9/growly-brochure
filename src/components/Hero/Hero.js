@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
@@ -7,6 +7,7 @@ import ContentContainer from "../Shared/ContentContainer"
 import Button from "../Shared/Button"
 import SectionTitle from "../Shared/SectionTitle"
 import SectionSubtitle from "../Shared/SectionSubtitle"
+import { Context } from "../../context/Context"
 
 const Root = styled.div`
   position: relative;
@@ -71,6 +72,7 @@ const StyledImg = styled(Img)`
 
 const Hero = () => {
   const data = useStaticQuery(HERO_QUERY)
+  const { toggleModalOpen } = useContext(Context)
   return (
     <Root>
       <Img
@@ -86,7 +88,7 @@ const Hero = () => {
           <HeroSubtext>
             Activate current subscribers to promote your company
           </HeroSubtext>
-          <StyledButton text="Request beta access" />
+          <StyledButton text="Request beta access" onClick={toggleModalOpen} />
         </TextContainer>
         <StyledImg fluid={data.heroImg.childImageSharp.fluid} />
       </StyledContainer>

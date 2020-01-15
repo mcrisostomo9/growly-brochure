@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import ContentContainer from "../Shared/ContentContainer"
 import { mediaQuery } from "../../utils/styles"
@@ -7,6 +7,7 @@ import SectionTitle from "../Shared/SectionTitle"
 import SectionSubtitle from "../Shared/SectionSubtitle"
 import icon from "../../images/steps-icon.png"
 import Button from "../Shared/Button"
+import { Context } from "../../context/Context"
 
 const StepsSection = styled(ContentContainer)`
   display: grid;
@@ -100,7 +101,7 @@ const StepTitle = styled.div`
   font-family: "Montserrat", serif;
   font-weight: 700;
   font-size: 1.15rem;
-  align-self: end;
+  align-self: flex-start;
 
   @media (min-width: ${mediaQuery.m768}) {
     font-size: 1.25rem;
@@ -161,6 +162,8 @@ const StepsArray = [
 ]
 
 const Steps = ({ logo }) => {
+  const { toggleModalOpen } = useContext(Context)
+
   return (
     <StepsSection>
       <TextContainer>
@@ -182,7 +185,7 @@ const Steps = ({ logo }) => {
             </StepContainer>
           ))}
         </StepsList>
-        <StyledButton text="Request beta access" />
+        <StyledButton text="Request beta access" onClick={toggleModalOpen} />
       </TextContainer>
       <StyledLogo fluid={logo.childImageSharp.fluid} />
     </StepsSection>

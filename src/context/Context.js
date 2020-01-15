@@ -10,6 +10,7 @@ export const ModalProvider = ({ children }) => {
   const [isModalOpen, setModalOpen] = useState(false)
 
   const toggleModalOpen = () => {
+    console.log("toggled")
     setModalOpen(!isModalOpen)
   }
 
