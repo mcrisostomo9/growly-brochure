@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useCountUp } from "react-countup"
 import SectionContainer from "../Shared/SectionContainer"
 import SectionTitle from "../Shared/SectionTitle"
 import ContentContainer from "../Shared/ContentContainer"
@@ -87,6 +88,27 @@ const ContentArray = [
 ]
 
 const Audiences = () => {
+  const subscribersCount = useCountUp({
+    startOnMount: true,
+    start: 10000,
+    end: 50000,
+    duration: 3000,
+    separator: ",",
+  })
+  const referralsCount = useCountUp({
+    startOnMount: true,
+    start: 2500,
+    end: 10000,
+    duration: 3500,
+    separator: ",",
+  })
+  const rewardsCount = useCountUp({
+    startOnMount: true,
+    start: 1000,
+    end: 5000,
+    duration: 4000,
+    separator: ",",
+  })
   return (
     <StyledSectionContainer>
       <ContentContainer>
@@ -95,15 +117,26 @@ const Audiences = () => {
           Humans influencing other humans
         </StyledSectionSubtitle>
         <BoxContainer>
-          {ContentArray.map(box => (
-            <StatisticBox key={box.label}>
-              <InnerContainer>
-                <StatImage src={box.icon} />
-                <Number>{box.count.toLocaleString()}</Number>
-              </InnerContainer>
-              <StatisticLabel>{box.label}</StatisticLabel>
-            </StatisticBox>
-          ))}
+          {ContentArray.map((box, i) => {
+            let count
+            if (i === 0) {
+              count = subscribersCount.countUp
+            } else if (i === 1) {
+              count = referralsCount.countUp
+            } else {
+              count = rewardsCount.countUp
+            }
+            return (
+              <StatisticBox key={box.label}>
+                <InnerContainer>
+                  <StatImage src={box.icon} />
+                  {/*<Number>{box.count.toLocaleString()}</Number>*/}
+                  <Number>{count}</Number>
+                </InnerContainer>
+                <StatisticLabel>{box.label}</StatisticLabel>
+              </StatisticBox>
+            )
+          })}
         </BoxContainer>
       </ContentContainer>
     </StyledSectionContainer>
