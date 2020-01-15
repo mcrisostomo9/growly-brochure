@@ -40,7 +40,6 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "yarn run develop",
     "serve": "gatsby serve",
-    "postinstall": "netlify-lambda install",
     "clean": "rimraf .cache public node_modules",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
