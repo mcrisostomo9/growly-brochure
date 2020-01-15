@@ -1,3 +1,24 @@
+@font-face {
+  font-family: Proxima Nova;
+  font-weight: 700;
+  font-style: normal;
+  src: url("../../fonts/FontsFree-Net-Proxima-Nova-Bold.otf") format("otf");
+}
+
+@font-face {
+  font-family: Proxima Nova;
+  font-weight: 400;
+  font-style: normal;
+  src: url("../../fonts/FontsFree-Net-proxima_nova_reg-webfont.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: Avenir;
+  font-weight: 300;
+  font-style: normal;
+  src: url("../../fonts/AvenirLTStd-Medium.otf") format("otf");
+}
+
 :root{
   --dark-grey: #58595B;
   --content-grey: #58585A;
@@ -12,11 +33,11 @@
 }
 
 body{
-  font-family: "Lato", sans-serif;
+  font-family: Avenir, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-family: "Montserrat", serif;
+  font-family: Proxima Nova, serif;
   font-weight: 700;
 }
 

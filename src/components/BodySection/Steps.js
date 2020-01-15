@@ -15,14 +15,14 @@ const StepsSection = styled(ContentContainer)`
 
   @media (min-width: ${mediaQuery.m768}) {
     grid-template-columns: 2fr 1fr;
-    padding-right: 0rem;
+    padding-right: 0;
   }
 
   @media (min-width: ${mediaQuery.m1024}) {
     grid-template-columns: 3fr 2fr;
   }
 
-  @media (min-width: ${mediaQuery.m1280}) {
+  @media (min-width: ${mediaQuery.m1680}) {
     grid-template-columns: 1fr 1fr;
   }
 `
@@ -99,22 +99,37 @@ const StepTextContainer = styled.div`
 const StepTitle = styled.div`
   font-family: "Montserrat", serif;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   align-self: end;
 
   @media (min-width: ${mediaQuery.m768}) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   @media (min-width: ${mediaQuery.m1024}) {
+    font-size: 1.4rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1280}) {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1680}) {
     font-size: 1.875rem;
   }
 `
 const StepBody = styled.div`
   font-family: "Lato", sans-serif;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 300;
   align-self: start;
+  margin-top: 0.5rem;
+  line-height: 1.25;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    font-size: 1.125rem;
+    max-width: 380px;
+  }
 `
 
 const StyledButton = styled(Button)`

@@ -7,7 +7,7 @@ const Root = styled.button`
   display: inline-block;
   color: #fff;
   background: var(--pink);
-  border: none;
+  border: 1px solid transparent;
   border-radius: 10px;
   padding: 1rem 1.25rem;
   text-transform: uppercase;
@@ -16,11 +16,20 @@ const Root = styled.button`
   font-size: 0.75rem;
 
   @media (min-width: ${mediaQuery.m768}) {
+    padding: 1rem 1.5rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1024}) {
     padding: 1.5rem 3rem;
   }
-  @media (min-width: ${mediaQuery.m1024}) {
-  }
+
   @media (min-width: ${mediaQuery.m1440}) {
+  }
+
+  :hover {
+    color: var(--blue);
+    background: #fff;
+    border: 1px solid var(--blue);
   }
 `
 

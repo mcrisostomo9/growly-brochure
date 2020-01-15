@@ -33,9 +33,18 @@ const GridTestimonial = styled.div`
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 2rem;
 
+  @media (min-width: ${mediaQuery.m768}) {
+    grid-gap: 3rem;
+  }
+
   @media (min-width: ${mediaQuery.m1024}) {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 3.5rem 3rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1440}) {
+    grid-gap: 4.5rem 3rem;
   }
 `
 
@@ -72,26 +81,31 @@ const TextContainer = styled.div`
 const Name = styled.div`
   font-family: "Montserrat", serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.25rem;
 
-  @media (min-width: ${mediaQuery.m768}) {
+  @media (min-width: ${mediaQuery.m1440}) {
     font-size: 1.5rem;
   }
 
-  @media (min-width: ${mediaQuery.m1280}) {
+  @media (min-width: ${mediaQuery.m1680}) {
     font-size: 1.875rem;
   }
 `
 
 const TestimonialText = styled.p`
-  margin: 1rem 0 0;
-  font-size: 1.125rem;
+  margin: 0.5rem 0 0;
+  line-height: 1.25;
+  font-size: 1rem;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    font-size: 1.125rem;
+  }
 `
 
-const Position = styled.div`
+const Position = styled(TestimonialText)`
   font-weight: 700;
   font-style: italic;
-  font-size: 1.125rem;
+  margin-top: 0.25rem;
 `
 
 const StyledButton = styled(Button)`

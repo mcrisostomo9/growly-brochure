@@ -19,6 +19,18 @@ const StyledContainer = styled(ContentContainer)`
   align-items: center;
 
   @media (min-width: ${mediaQuery.m768}) {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  @media (min-width: ${mediaQuery.m1024}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: ${mediaQuery.m1440}) {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  @media (min-width: ${mediaQuery.m1680}) {
     grid-template-columns: 1fr 1fr;
   }
 `
