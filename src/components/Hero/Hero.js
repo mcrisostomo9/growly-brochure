@@ -76,6 +76,7 @@ const Hero = () => {
       <Img
         fluid={data.heroBg.childImageSharp.fluid}
         style={{ ...backgroundGatsbyImage }}
+        backgroundColor="#fffafd"
       />
       <StyledContainer>
         <TextContainer>

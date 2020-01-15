@@ -82,16 +82,16 @@ const StatisticLabel = styled.div`
 `
 
 const ContentArray = [
-  { count: 10956, label: "total subscribers", icon: explore },
-  { count: 10956, label: "referrals made", icon: explore },
-  { count: 10956, label: "rewards claimed", icon: explore },
+  { label: "total subscribers", icon: explore },
+  { label: "referrals made", icon: explore },
+  { label: "rewards claimed", icon: explore },
 ]
 
 const Audiences = () => {
   const subscribersCount = useCountUp({
     startOnMount: true,
     start: 10000,
-    end: 50000,
+    end: 25000,
     duration: 3000,
     separator: ",",
   })
@@ -99,14 +99,14 @@ const Audiences = () => {
     startOnMount: true,
     start: 2500,
     end: 10000,
-    duration: 3500,
+    duration: 4000,
     separator: ",",
   })
   const rewardsCount = useCountUp({
     startOnMount: true,
     start: 1000,
     end: 5000,
-    duration: 4000,
+    duration: 4500,
     separator: ",",
   })
   return (
@@ -130,7 +130,6 @@ const Audiences = () => {
               <StatisticBox key={box.label}>
                 <InnerContainer>
                   <StatImage src={box.icon} />
-                  {/*<Number>{box.count.toLocaleString()}</Number>*/}
                   <Number>{count}</Number>
                 </InnerContainer>
                 <StatisticLabel>{box.label}</StatisticLabel>
