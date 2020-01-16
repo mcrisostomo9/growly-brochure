@@ -7,6 +7,7 @@ import Button from "../Shared/Button"
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa"
 import { mediaQuery } from "../../utils/styles"
 import { Context } from "../../context/Context"
+import RequestForm from "../Form/RequestForm"
 
 const Root = styled.footer`
   background: var(--dark-grey);
@@ -115,6 +116,7 @@ const Footer = () => {
             </SocialIcon>
           ))}
         </SocialContainer>
+        <RequestForm />
       </StyledContentContainer>
     </Root>
   )
