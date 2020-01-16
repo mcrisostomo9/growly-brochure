@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import ContentContainer from "../Shared/ContentContainer"
-import logo from "../../images/logo.svg"
+import logo from "../../images/logo.png"
 import Button from "../Shared/Button"
 import { mediaQuery } from "../../utils/styles"
 
