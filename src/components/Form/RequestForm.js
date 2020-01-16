@@ -14,7 +14,7 @@ const Form = styled.form`
   flex-direction: column;
   width: 100%;
   max-width: 1000px;
-  margin: 3rem auto 0;
+  margin: 0;
   align-items: center;
   font-family: var(--body-font);
 
@@ -28,11 +28,18 @@ const Form = styled.form`
 
 const Label = styled.label`
   color: #2e2e2e;
-  font-size: 1.5rem;
+  font-size: 1rem;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    font-size: 1.25rem;
+  }
+  @media (min-width: ${mediaQuery.m1024}) {
+    font-size: 1.5rem;
+  }
 `
 
 const Input = styled.input`
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   width: 100%;
   height: 35px;
   background: transparent;
@@ -45,9 +52,24 @@ const Select = styled.select`
   width: 100%;
   height: 35px;
   border: none;
-  background: transparent;
+  background-color: transparent;
   border-bottom: 1px solid #000;
   padding: 0.5rem;
+  appearance: none;
+  position: relative;
+
+  :after {
+    content: "▼";
+    padding: 12px 8px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    z-index: 1;
+    text-align: center;
+    width: 10%;
+    height: 100%;
+    pointer-events: none;
+  }
 `
 
 const Email = styled.div`
@@ -185,6 +207,7 @@ const RequestForm = () => {
             onChange={handleChange}
           >
             <option defaultValue>1 - 1,000 subscibers</option>
+            <option value="2000">1,001 - 2,000 subscibers</option>
             {/*{form_option.map(i => (*/}
             {/*  <option key={i.option.text} value={i.option.text}>*/}
             {/*    {i.option.text}*/}
@@ -197,6 +220,8 @@ const RequestForm = () => {
             onChange={handleChange}
           >
             <option defaultValue>Select email service provider</option>
+            <option value="mailchimp">Mailchimp</option>
+            <option value="klaviyo">Klaviyo</option>
             {/*{form_option.map(i => (*/}
             {/*  <option key={i.option.text} value={i.option.text}>*/}
             {/*    {i.option.text}*/}

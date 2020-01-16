@@ -3,9 +3,10 @@ import Modal from "react-modal"
 import { Context } from "../../context/Context"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import { backgroundGatsbyImage } from "../../utils/styles"
+import { backgroundGatsbyImage, mediaQuery } from "../../utils/styles"
 import styled from "styled-components"
 import RequestForm from "../Form/RequestForm"
+import logo from "../../images/logo.svg"
 
 const CloseButton = styled.button`
   background: transparent;
@@ -17,22 +18,48 @@ const CloseButton = styled.button`
   color: #fff;
   cursor: pointer;
   font-size: 25px;
+
+  :hover {
+    color: #2e2e2e;
+  }
 `
 
 const ModalContentContainer = styled.div`
-  height: 100%;
   width: 100%;
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 `
 
 const LogoContainer = styled.div`
   width: 100%;
   height: auto;
-  max-width: 388px;
+  max-width: 200px;
+
+  @media (min-width: ${mediaQuery.m1024}) {
+    max-width: 250px;
+  }
+
+  @media (min-width: ${mediaQuery.m1280}) {
+    max-width: 300px;
+  }
+
+  @media (min-width: ${mediaQuery.m1440}) {
+    max-width: 325px;
+  }
+
+  @media (min-width: ${mediaQuery.m1680}) {
+    max-width: 380px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `
 
 const TextContainer = styled.div`
@@ -42,26 +69,41 @@ const TextContainer = styled.div`
 `
 
 const RequestTitle = styled.h2`
-  font-size: 2.25rem;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   color: #010101;
+  font-size: 1.75rem;
+  margin: 1rem 0;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    font-size: 2.25rem;
+  }
 `
 
 const RequestSubtitle = styled.p`
   color: #2e2e2e;
-  font-size: 1.5rem;
-  line-height: 1.5;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin: 0;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    font-size: 1.5rem;
+  }
 `
 
 const customStyles = {
   content: {
     padding: 0,
+    border: "none",
+    top: 0,
+    right: 0,
+    left: 0,
+    bottom: 0,
   },
 }
 
 const RequestAccessModal = () => {
   const { isModalOpen, toggleModalOpen } = useContext(Context)
-  const { heroBg, logo } = useStaticQuery(MODAL_QUERY)
+  const { heroBg } = useStaticQuery(MODAL_QUERY)
 
   return (
     <Modal
@@ -77,10 +119,10 @@ const RequestAccessModal = () => {
       <CloseButton onClick={toggleModalOpen}>X</CloseButton>
       <ModalContentContainer>
         <LogoContainer>
-          <Img fluid={logo.childImageSharp.fluid} />
+          <img src={logo} alt="Growly Logo" />
         </LogoContainer>
         <TextContainer>
-          <RequestTitle>Beta Request Access</RequestTitle>
+          <RequestTitle>Beta Access Request</RequestTitle>
           <RequestSubtitle>
             Have a newsletter? We're inviting a selected few to try our
             signature solution.
@@ -97,13 +139,6 @@ export default RequestAccessModal
 export const MODAL_QUERY = graphql`
   query ModalQuery {
     heroBg: file(relativePath: { eq: "modal-bg.png" }) {
-      childImageSharp {
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    logo: file(relativePath: { eq: "header-logo.png" }) {
       childImageSharp {
         fluid(quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
