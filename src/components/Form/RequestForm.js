@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { ErrorMessage, Formik } from "formik"
 import Button from "../Shared/Button"
 import { mediaQuery } from "../../utils/styles"
+import { Context } from "../../context/Context"
 
 const Form = styled.form`
   display: grid;
@@ -117,6 +118,8 @@ export const encode = data => {
 }
 
 const RequestForm = () => {
+  const { toggleRequestReceived } = useContext(Context)
+
   return (
     <Formik
       initialValues={{
@@ -152,12 +155,8 @@ const RequestForm = () => {
           body: encode({ "form-name": "beta-request", ...values }),
         })
           .then(res => {
-            console.log(res)
-            actions.setStatus({
-              success:
-                "You're in line!  We'll circle back soon & be in touch with next steps.",
-            })
             actions.setSubmitting(false)
+            toggleRequestReceived()
           })
           .catch(err => {
             actions.setStatus({
@@ -217,7 +216,6 @@ const RequestForm = () => {
             <option value="klaviyo">Klaviyo</option>
           </ServiceProvider>
           <StyledButton text="request beta access" />
-          {status && <div>{status.success}</div>}
           {status && status.errorMsg && <div>{status.errorMsg}</div>}
         </Form>
       )}

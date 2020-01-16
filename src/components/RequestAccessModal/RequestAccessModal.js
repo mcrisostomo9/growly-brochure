@@ -93,6 +93,15 @@ const RequestSubtitle = styled.p`
   }
 `
 
+const ReceivedSubtitle = styled(RequestSubtitle)`
+  margin-top: 2rem;
+
+  span {
+    display: block;
+    margin-top: 3rem;
+  }
+`
+
 const customStyles = {
   overlay: { zIndex: 10 },
   content: {
@@ -107,7 +116,9 @@ const customStyles = {
 }
 
 const RequestAccessModal = () => {
-  const { isModalOpen, toggleModalOpen } = useContext(Context)
+  const { isModalOpen, toggleModalOpen, isRequestReceived } = useContext(
+    Context
+  )
   const { heroBg } = useStaticQuery(MODAL_QUERY)
 
   return (
@@ -126,14 +137,26 @@ const RequestAccessModal = () => {
         <LogoContainer>
           <img src={logo} alt="Growly Logo" />
         </LogoContainer>
-        <TextContainer>
-          <RequestTitle>Beta Access Request</RequestTitle>
-          <RequestSubtitle>
-            Have a newsletter? We're inviting a selected few to try our
-            signature solution.
-          </RequestSubtitle>
-        </TextContainer>
-        <RequestForm />
+        {isRequestReceived ? (
+          <TextContainer>
+            <RequestTitle>Request Received!</RequestTitle>
+            <ReceivedSubtitle>
+              You’re in line! We’ll circle back soon & be in touch with next
+              steps. <span>Grow-on!</span>
+            </ReceivedSubtitle>
+          </TextContainer>
+        ) : (
+          <>
+            <TextContainer>
+              <RequestTitle>Beta Access Request</RequestTitle>
+              <RequestSubtitle>
+                Have a newsletter? We're inviting a selected few to try our
+                signature solution.
+              </RequestSubtitle>
+            </TextContainer>
+            <RequestForm />
+          </>
+        )}
       </ModalContentContainer>
     </Modal>
   )
