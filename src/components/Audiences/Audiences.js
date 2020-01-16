@@ -6,7 +6,7 @@ import SectionTitle from "../Shared/SectionTitle"
 import ContentContainer from "../Shared/ContentContainer"
 import SectionSubtitle from "../Shared/SectionSubtitle"
 import { mediaQuery } from "../../utils/styles"
-import explore from "../../images/explore.png"
+import explore from "../../images/explore.svg"
 
 const StyledSectionContainer = styled(SectionContainer)`
   background: var(--light-grey);

@@ -5,7 +5,7 @@ import { mediaQuery } from "../../utils/styles"
 import Img from "gatsby-image"
 import SectionTitle from "../Shared/SectionTitle"
 import SectionSubtitle from "../Shared/SectionSubtitle"
-import icon from "../../images/steps-icon.png"
+import icon from "../../images/steps-icon.svg"
 import Button from "../Shared/Button"
 import { Context } from "../../context/Context"
 
