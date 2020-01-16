@@ -14,32 +14,61 @@ const Root = styled.footer`
 `
 
 const StyledContentContainer = styled(ContentContainer)`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
   align-items: center;
-  flex-direction: column;
+  grid-template-areas: "logo" "button" "social" "copyright";
+  justify-items: center;
 
-  @media (min-width: ${mediaQuery.m768}) {
-    flex-direction: row;
+  @media (min-width: ${mediaQuery.m640}) {
+    justify-items: initial;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "logo button" "copyright social";
   }
 `
 
-const LeftContainer = styled.div``
-
-const TextContainer = styled.div`
-  color: #fff;
-  font-size: 0.75rem;
-  margin-top: 2rem;
+const Logo = styled(Img)`
+  max-width: 150px;
+  width: 100%;
+  grid-area: logo;
 `
 
-const RightContainer = styled.div``
+const Copyright = styled.div`
+  color: #fff;
+  font-size: 0.75rem;
+  grid-area: copyright;
+  //align-self: end;
+`
 
-const StyledButton = styled(Button)``
+const StyledButton = styled(Button)`
+  grid-area: button;
+  max-width: 200px;
+  font-size: 0.75rem;
+  margin-top: 1.5rem;
 
-const IconContainer = styled.div`
-  margin-top: 2rem;
+  @media (min-width: ${mediaQuery.m640}) {
+    justify-self: end;
+    margin-top: 0;
+  }
+
+  @media (min-width: ${mediaQuery.m768}) {
+    padding: 1rem 1.5rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1024}) {
+    padding: 1rem;
+  }
+`
+
+const SocialContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  grid-area: social;
+
+  @media (min-width: ${mediaQuery.m640}) {
+    justify-self: end;
+  }
 `
 
 const SocialIcon = styled.a`
@@ -74,22 +103,18 @@ const Footer = () => {
   return (
     <Root>
       <StyledContentContainer>
-        <LeftContainer>
-          <Img fluid={data.logo.childImageSharp.fluid} />
-          <TextContainer>
-            ©{new Date().getFullYear()} All Rights Reserved, Growly
-          </TextContainer>
-        </LeftContainer>
-        <RightContainer>
-          <StyledButton text="Request Beta access" onClick={toggleModalOpen} />
-          <IconContainer>
-            {SocialArray.map(i => (
-              <SocialIcon href={i.link} target="_blank" key={i.link}>
-                {i.icon}
-              </SocialIcon>
-            ))}
-          </IconContainer>
-        </RightContainer>
+        <Logo fluid={data.logo.childImageSharp.fluid} />
+        <Copyright>
+          ©{new Date().getFullYear()} All Rights Reserved, Growly
+        </Copyright>
+        <StyledButton text="Request Beta access" onClick={toggleModalOpen} />
+        <SocialContainer>
+          {SocialArray.map(i => (
+            <SocialIcon href={i.link} target="_blank" key={i.link}>
+              {i.icon}
+            </SocialIcon>
+          ))}
+        </SocialContainer>
       </StyledContentContainer>
     </Root>
   )

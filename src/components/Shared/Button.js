@@ -22,9 +22,6 @@ const Root = styled.button`
     padding: 1.5rem 3rem;
   }
 
-  @media (min-width: ${mediaQuery.m1440}) {
-  }
-
   :hover {
     color: var(--blue);
     background: #fff;
