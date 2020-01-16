@@ -163,7 +163,6 @@ const StepsArray = [
 
 const Steps = ({ logo }) => {
   const { toggleModalOpen } = useContext(Context)
-
   return (
     <StepsSection>
       <TextContainer>
