@@ -26,19 +26,21 @@ const CloseButton = styled.button`
 
 const ModalContentContainer = styled.div`
   width: 100%;
-  height: 100%;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-rows: min-content;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  align-content: center;
 `
 
 const LogoContainer = styled.div`
   width: 100%;
   height: auto;
   max-width: 200px;
+  margin: 0 auto;
 
   @media (min-width: ${mediaQuery.m1024}) {
     max-width: 250px;
