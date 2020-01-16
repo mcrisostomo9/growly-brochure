@@ -130,17 +130,14 @@ const RequestForm = () => {
         let errors = {}
         // REGEX
         if (!values.email) {
-          errors.email = "Forgot something? Add in your email."
+          errors.email = "Please add in your email."
         } else if (
           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
         ) {
-          errors.email = "Try again, that’s not a valid email."
+          errors.email = "Please enter a valid email."
         }
         if (!values.name) {
-          errors.name = "Forgot something? Add in your name."
-        }
-        if (!values.message) {
-          errors.company = "Forgot something? Add a brief message"
+          errors.name = "Please add in your name."
         }
         if (values.dropdown === "Inquiry Type") {
           errors.dropdown = "Please select one of the options"
@@ -148,37 +145,38 @@ const RequestForm = () => {
 
         return errors
       }}
-      // onSubmit={(values, actions) => {
-      //   fetch("/", {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      //     body: encode({ "form-name": "contact", ...values }),
-      //   })
-      //     .then(res => {
-      //       console.log(res)
-      //       actions.setStatus({
-      //         success: "Success! We’ll talk soon.. real soon.",
-      //       })
-      //       actions.setSubmitting(false)
-      //     })
-      //     .catch(err => {
-      //       actions.setStatus({
-      //         errorMsg: "There was an error submitting the form.",
-      //       })
-      //       actions.setSubmitting(false)
-      //       console.log(err)
-      //     })
-      // }}
+      onSubmit={(values, actions) => {
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({ "form-name": "beta-request", ...values }),
+        })
+          .then(res => {
+            console.log(res)
+            actions.setStatus({
+              success:
+                "You're in line!  We'll circle back soon & be in touch with next steps.",
+            })
+            actions.setSubmitting(false)
+          })
+          .catch(err => {
+            actions.setStatus({
+              errorMsg: "There was an error submitting the form.",
+            })
+            actions.setSubmitting(false)
+            console.log(err)
+          })
+      }}
       render={({ values, handleChange, handleSubmit, status }) => (
         <Form
           onSubmit={handleSubmit}
-          name="beta request"
+          name="beta-request"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="bot-field" />
-          <input type="hidden" name="form-name" value="request" />
+          <input type="hidden" name="form-name" value="beta-request" />
 
           <Email>
             <Label>Email</Label>
@@ -206,13 +204,8 @@ const RequestForm = () => {
             value={values.subscribers}
             onChange={handleChange}
           >
-            <option defaultValue>1 - 1,000 subscibers</option>
-            <option value="2000">1,001 - 2,000 subscibers</option>
-            {/*{form_option.map(i => (*/}
-            {/*  <option key={i.option.text} value={i.option.text}>*/}
-            {/*    {i.option.text}*/}
-            {/*  </option>*/}
-            {/*))}*/}
+            <option defaultValue>1 - 1,000 subscribers</option>
+            <option value="2000">1,001 - 2,000 subscribers</option>
           </Subscribers>
           <ServiceProvider
             name="serviceProvider"
@@ -222,14 +215,8 @@ const RequestForm = () => {
             <option defaultValue>Select email service provider</option>
             <option value="mailchimp">Mailchimp</option>
             <option value="klaviyo">Klaviyo</option>
-            {/*{form_option.map(i => (*/}
-            {/*  <option key={i.option.text} value={i.option.text}>*/}
-            {/*    {i.option.text}*/}
-            {/*  </option>*/}
-            {/*))}*/}
           </ServiceProvider>
           <StyledButton text="request beta access" />
-
           {status && <div>{status.success}</div>}
           {status && status.errorMsg && <div>{status.errorMsg}</div>}
         </Form>

@@ -25,6 +25,7 @@ const CloseButton = styled.button`
 `
 
 const ModalContentContainer = styled.div`
+  margin-top: 2rem;
   width: 100%;
   position: relative;
   display: grid;
