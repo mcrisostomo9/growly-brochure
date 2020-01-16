@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import ContentContainer from "../Shared/ContentContainer"
 import logo from "../../images/logo.png"
 import Button from "../Shared/Button"
 import { mediaQuery } from "../../utils/styles"
+import { Context } from "../../context/Context"
 
 const Root = styled(ContentContainer)`
   padding: 1rem;
@@ -16,7 +17,7 @@ const Root = styled(ContentContainer)`
   left: 0;
   width: 100%;
   align-items: center;
-  //z-index: 1;
+  z-index: 1;
 
   @media (min-width: ${mediaQuery.m768}) {
     padding: 1rem 3rem;
@@ -56,11 +57,14 @@ const HeaderButton = styled(Button)`
   }
 `
 
-const Header = () => (
-  <Root as="header">
-    <Logo src={logo} alt="Growly Logo" />
-    <HeaderButton text="Request Beta Access" />
-  </Root>
-)
+const Header = () => {
+  const { toggleModalOpen } = useContext(Context)
+  return (
+    <Root as="header">
+      <Logo src={logo} alt="Growly Logo" />
+      <HeaderButton text="Request Beta Access" onClick={toggleModalOpen} />
+    </Root>
+  )
+}
 
 export default Header

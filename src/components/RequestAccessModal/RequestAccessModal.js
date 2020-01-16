@@ -94,6 +94,7 @@ const RequestSubtitle = styled.p`
 `
 
 const customStyles = {
+  overlay: { zIndex: 10 },
   content: {
     padding: 0,
     border: "none",
@@ -101,6 +102,7 @@ const customStyles = {
     right: 0,
     left: 0,
     bottom: 0,
+    zIndex: 10,
   },
 }
 
