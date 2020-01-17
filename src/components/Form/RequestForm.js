@@ -190,6 +190,7 @@ const RequestForm = () => {
           </Name>
 
           <Company>
+            {" "}
             <Label>Company</Label>
             <Input
               name="company"
