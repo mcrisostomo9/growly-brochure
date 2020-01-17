@@ -98,7 +98,7 @@ const StepTextContainer = styled.div`
 `
 
 const StepTitle = styled.div`
-  font-family: "Montserrat", serif;
+  font-family: "Proxima Nova", serif;
   font-weight: 700;
   font-size: 1.15rem;
   align-self: flex-start;
@@ -120,7 +120,6 @@ const StepTitle = styled.div`
   }
 `
 const StepBody = styled.div`
-  font-family: "Lato", sans-serif;
   font-size: 1rem;
   font-weight: 300;
   align-self: start;

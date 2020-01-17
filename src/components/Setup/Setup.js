@@ -22,7 +22,7 @@ const StyledSectionSubtitle = styled(SectionSubtitle)`
 const SectionContent = styled(SectionSubtitle)`
   margin: 2rem auto 0;
   line-height: 1.75;
-  color: var(--content-grey);
+  color: #7c8087;
 
   @media (min-width: ${mediaQuery.m768}) {
     margin-top: 3rem;

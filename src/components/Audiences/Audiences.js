@@ -57,6 +57,8 @@ const Number = styled.span`
   color: #fff;
   font-size: 2.5rem;
   margin-left: 1rem;
+  font-family: "Proxima Nova", serif;
+  font-weight: 400;
 
   @media (min-width: ${mediaQuery.m768}) {
     font-size: 2.25rem;

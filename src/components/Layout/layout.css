@@ -2,21 +2,35 @@
   font-family: 'Avenir';
   font-weight: 300;
   font-style: normal;
-  src: url("../../static/fonts/avenir-light-webfont.woff") format("woff");
+  src: url("../../static/fonts/Avenir-Light.ttf") format("ttf");
 }
 
 @font-face {
   font-family: 'Avenir';
   font-weight: 400;
   font-style: normal;
-  src: url("../../static/fonts/Avenir-Medium-webfont.woff") format("woff");
+  src: url("../../static/fonts/Avenir-Book.ttf") format("ttf");
 }
 
 @font-face {
   font-family: 'Proxima Nova';
   font-weight: 700;
   font-style: normal;
-  src: url("../../static/fonts/proxima-nova-bold-webfont.woff") format("woff");
+  src: url("../../static/fonts/proxima-nova-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 800;
+  font-style: normal;
+  src: url("../../static/fonts/proxima-nova-extrabold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 400;
+  font-style: normal;
+  src: url("../../static/fonts/proxima-nova-regular.woff") format("woff");
 }
 
 :root{
@@ -38,9 +52,9 @@ body{
 
 h1, h2, h3, h4, h5, h6{
   font-family: "Proxima Nova", serif;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 p{
-  font-weight: 300;
+  font-weight: 400;
 }

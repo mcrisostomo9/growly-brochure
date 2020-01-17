@@ -80,7 +80,7 @@ const TextContainer = styled.div`
 `
 
 const Name = styled.div`
-  font-family: "Montserrat", serif;
+  font-family: "Proxima Nova", serif;
   font-weight: 700;
   font-size: 1.25rem;
 
