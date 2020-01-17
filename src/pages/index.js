@@ -10,7 +10,7 @@ import RequestAccessModal from "../components/RequestAccessModal/RequestAccessMo
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO />
     <Hero />
     <Audiences />
     <Setup />

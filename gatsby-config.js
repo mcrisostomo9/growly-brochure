@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Growly`,
+    title: `Growly | Grow your email newsletter.`,
     description: `Growly Lorem`,
     author: `@mcrisostomo9`,
   },

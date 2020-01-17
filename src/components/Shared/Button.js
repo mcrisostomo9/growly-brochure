@@ -29,9 +29,9 @@ const Root = styled.button`
   }
 `
 
-const Button = ({ text, className, onClick }) => {
+const Button = ({ text, className, onClick, type }) => {
   return (
-    <Root onClick={onClick} className={className}>
+    <Root onClick={onClick} className={className} type={type}>
       {text}
     </Root>
   )

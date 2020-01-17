@@ -4,6 +4,7 @@ import { ErrorMessage, Formik } from "formik"
 import Button from "../Shared/Button"
 import { mediaQuery } from "../../utils/styles"
 import { Context } from "../../context/Context"
+import arrow from "../../images/arrow.svg"
 
 const Form = styled.form`
   display: grid;
@@ -11,7 +12,7 @@ const Form = styled.form`
   grid-template-rows: repeat(6, 1fr);
   grid-template-areas: "email" "name" "company" "subscribers" "serviceProvider" "button";
   padding: 1rem;
-  grid-gap: 1rem;
+  grid-gap: 2rem 5rem;
   flex-direction: column;
   width: 100%;
   max-width: 1000px;
@@ -23,7 +24,6 @@ const Form = styled.form`
     grid-template-areas: "email email" "name company" "subscribers serviceProvider" "button button";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-gap: 2rem 5rem;
   }
 `
 
@@ -53,30 +53,18 @@ const Select = styled.select`
   width: 100%;
   height: 35px;
   border: none;
-  background-color: transparent;
   border-bottom: 1px solid #000;
-  padding: 0.5rem;
+  border-radius: 0;
+  padding: 0.5rem 1.25rem 0.5rem 0.5rem;
   appearance: none;
-  position: relative;
-
-  :after {
-    content: "▼";
-    padding: 12px 8px;
-    position: absolute;
-    right: 10px;
-    top: 0;
-    z-index: 1;
-    text-align: center;
-    width: 10%;
-    height: 100%;
-    pointer-events: none;
-  }
+  background: transparent url(${arrow}) no-repeat right;
 `
 
 const Email = styled.div`
   grid-area: email;
   display: flex;
   flex-direction: column;
+  position: relative;
 `
 
 const Name = styled(Email)`
@@ -91,24 +79,34 @@ const Subscribers = styled(Select)`
   grid-area: subscribers;
 `
 
-const ServiceProvider = styled(Select)`
+const ServiceProviderContainer = styled.div`
   grid-area: serviceProvider;
+  position: relative;
 `
+
+const ServiceProvider = styled(Select)``
 
 const StyledButton = styled(Button)`
   grid-area: button;
   justify-self: center;
 `
 
-export const ErrorText = styled.div`
+const ErrorText = styled.div`
   color: #ff5555;
-  margin-top: 0.5rem;
-  font-family: var(--subheader-font);
   font-size: 1rem;
+  position: absolute;
+  bottom: -1.5rem;
 `
 
-export const SuccessText = styled(ErrorText)`
-  color: #9de061;
+const ErrorProvider = styled(ErrorText)`
+  bottom: -2.5rem;
+`
+
+const ErrorSubmission = styled(ErrorText)`
+  text-align: center;
+  margin: 0;
+  grid-column: span 2;
+  position: relative;
 `
 
 export const encode = data => {
@@ -126,7 +124,7 @@ const RequestForm = () => {
         email: "",
         name: "",
         company: "",
-        subscribers: "",
+        subscribers: "1 - 1,000",
         serviceProvider: "",
       }}
       validate={values => {
@@ -142,8 +140,11 @@ const RequestForm = () => {
         if (!values.name) {
           errors.name = "Please add in your name."
         }
-        if (values.dropdown === "Inquiry Type") {
-          errors.dropdown = "Please select one of the options"
+        if (!values.company) {
+          errors.company = "Please add in your company."
+        }
+        if (!values.serviceProvider) {
+          errors.serviceProvider = "Please select your email service provider."
         }
 
         return errors
@@ -190,7 +191,6 @@ const RequestForm = () => {
           </Name>
 
           <Company>
-            {" "}
             <Label>Company</Label>
             <Input
               name="company"
@@ -207,17 +207,20 @@ const RequestForm = () => {
             <option defaultValue>1 - 1,000 subscribers</option>
             <option value="2000">1,001 - 2,000 subscribers</option>
           </Subscribers>
-          <ServiceProvider
-            name="serviceProvider"
-            value={values.serviceProvider}
-            onChange={handleChange}
-          >
-            <option defaultValue>Select email service provider</option>
-            <option value="mailchimp">Mailchimp</option>
-            <option value="klaviyo">Klaviyo</option>
-          </ServiceProvider>
-          <StyledButton text="request beta access" />
-          {status && status.errorMsg && <div>{status.errorMsg}</div>}
+          <ServiceProviderContainer>
+            <ServiceProvider
+              name="serviceProvider"
+              value={values.serviceProvider}
+              onChange={handleChange}
+            >
+              <option defaultValue>Select email service provider</option>
+              <option value="mailchimp">Mailchimp</option>
+              <option value="klaviyo">Klaviyo</option>
+            </ServiceProvider>
+            <ErrorMessage name="serviceProvider" component={ErrorProvider} />
+          </ServiceProviderContainer>
+          <StyledButton text="request beta access" type="submit" />
+          {status && status.errorMsg && <ErrorSubmission>ff</ErrorSubmission>}
         </Form>
       )}
     />
