@@ -84,15 +84,15 @@ const SocialIcon = styled.a`
 const SocialArray = [
   {
     icon: <FaInstagram />,
-    link: "https://instagram.com",
+    link: "https://instagram.com/growlyapp/",
   },
   {
     icon: <FaTwitter />,
-    link: "https://twitter.com",
+    link: "https://twitter.com/growlyapp",
   },
   {
     icon: <FaFacebookF />,
-    link: "https://facebook.com",
+    link: "https://facebook.com/growlyapp",
   },
 ]
 
