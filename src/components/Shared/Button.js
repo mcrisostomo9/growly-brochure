@@ -4,6 +4,8 @@ import { mediaQuery } from "../../utils/styles"
 
 const Root = styled.button`
   display: inline-block;
+  font-family: "Avenir", sans-serif;
+  font-weight: 700;
   color: #fff;
   background: var(--pink);
   border: 1px solid transparent;
@@ -11,8 +13,8 @@ const Root = styled.button`
   padding: 1rem 1.25rem;
   text-transform: uppercase;
   cursor: pointer;
-  font-weight: 400;
   font-size: 0.75rem;
+  letter-spacing: 2px;
 
   @media (min-width: ${mediaQuery.m768}) {
     padding: 1rem 1.5rem;
