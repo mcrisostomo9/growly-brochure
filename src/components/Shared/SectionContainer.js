@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const Root = styled.div`
+const Root = styled.section`
   padding: 2rem 0 3rem;
 `
 
