@@ -9,10 +9,6 @@ const SectionSubtitle = styled.p`
   @media (min-width: ${mediaQuery.m1440}) {
     font-size: 1.5rem;
   }
-  
-  // @media (min-width: ${mediaQuery.m1680}) {
-  //   font-size: 1.5rem;
-  // }
 `
 
 export default SectionSubtitle
