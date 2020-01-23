@@ -30,6 +30,14 @@ const StepsSection = styled(ContentContainer)`
 
 const TextContainer = styled.div`
   align-self: start;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    display: initial;
+  }
 `
 
 const StyledLogo = styled(Img)`
