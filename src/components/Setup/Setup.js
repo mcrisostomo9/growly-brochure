@@ -26,7 +26,7 @@ const SectionContent = styled(SectionSubtitle)`
 
   @media (min-width: ${mediaQuery.m768}) {
     margin-top: 3rem;
-    max-width: 1000px;
+    max-width: 800px;
   }
 `
 
