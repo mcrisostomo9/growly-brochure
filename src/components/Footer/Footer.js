@@ -44,7 +44,6 @@ const Copyright = styled.div`
 
 const StyledButton = styled(Button)`
   grid-area: button;
-  max-width: 200px;
   font-size: 0.75rem;
   margin-top: 1.5rem;
 
