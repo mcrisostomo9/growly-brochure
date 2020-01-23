@@ -79,6 +79,12 @@ const SocialIcon = styled.a`
     width: 20px;
     height: auto;
   }
+
+  :focus,
+  :active {
+    outline: none;
+    border: 1px solid var(--blue);
+  }
 `
 
 const SocialArray = [

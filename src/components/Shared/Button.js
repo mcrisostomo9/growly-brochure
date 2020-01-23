@@ -28,6 +28,13 @@ const Root = styled.button`
     color: var(--blue);
     background: #fff;
     border: 1px solid var(--blue);
+    outline: none;
+  }
+
+  :focus,
+  :active {
+    outline: none;
+    border: 1px solid var(--blue);
   }
 `
 

@@ -22,6 +22,12 @@ const CloseButton = styled.button`
   :hover {
     color: #2e2e2e;
   }
+
+  :focus,
+  :active {
+    outline: none;
+    color: #2e2e2e;
+  }
 `
 
 const ModalContentContainer = styled.div`
