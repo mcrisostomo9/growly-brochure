@@ -1,10 +1,11 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import { ErrorMessage, Formik } from "formik"
+import TextField from "@material-ui/core/TextField"
+import MenuItem from "@material-ui/core/MenuItem"
+import { Formik } from "formik"
 import Button from "../Shared/Button"
 import { mediaQuery } from "../../utils/styles"
 import { Context } from "../../context/Context"
-import arrow from "../../images/arrow.svg"
 
 const Form = styled.form`
   display: grid;
@@ -27,64 +28,43 @@ const Form = styled.form`
   }
 `
 
-const Label = styled.label`
-  color: #2e2e2e;
-  font-size: 1rem;
+const StyledMaterialSelect = styled(TextField)`
+  .MuiFormLabel-root {
+    color: var(--content-grey);
 
-  @media (min-width: ${mediaQuery.m768}) {
-    font-size: 1.25rem;
+    &.Mui-focused {
+      color: var(--dark-grey);
+    }
   }
-  @media (min-width: ${mediaQuery.m1024}) {
-    font-size: 1.5rem;
+
+  .MuiInputBase-root {
+    color: var(--dark-grey);
+
+    &.MuiInput-underline:after {
+      border-color: 2px solid var(--dark-grey);
+    }
   }
 `
 
-const Input = styled.input`
-  margin-top: 0.5rem;
-  width: 100%;
-  height: 35px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #000;
-  padding: 0.5rem;
-`
-
-const Select = styled.select`
-  width: 100%;
-  height: 35px;
-  border: none;
-  border-bottom: 1px solid #000;
-  border-radius: 0;
-  padding: 0.5rem 1.25rem 0.5rem 0.5rem;
-  appearance: none;
-  background: transparent url(${arrow}) no-repeat right;
-`
-
-const Email = styled.div`
+const Email = styled(StyledMaterialSelect)`
   grid-area: email;
-  display: flex;
-  flex-direction: column;
-  position: relative;
 `
 
-const Name = styled(Email)`
+const Name = styled(StyledMaterialSelect)`
   grid-area: name;
 `
 
-const Company = styled(Email)`
+const Company = styled(StyledMaterialSelect)`
   grid-area: company;
 `
 
-const Subscribers = styled(Select)`
+const Subscribers = styled(StyledMaterialSelect)`
   grid-area: subscribers;
 `
 
-const ServiceProviderContainer = styled.div`
+const ServiceProvider = styled(StyledMaterialSelect)`
   grid-area: serviceProvider;
-  position: relative;
 `
-
-const ServiceProvider = styled(Select)``
 
 const StyledButton = styled(Button)`
   grid-area: button;
@@ -96,10 +76,6 @@ const ErrorText = styled.div`
   font-size: 1rem;
   position: absolute;
   bottom: -1.5rem;
-`
-
-const ErrorProvider = styled(ErrorText)`
-  bottom: -2.5rem;
 `
 
 const ErrorSubmission = styled(ErrorText)`
@@ -167,7 +143,14 @@ const RequestForm = () => {
             console.log(err)
           })
       }}
-      render={({ values, handleChange, handleSubmit, status }) => (
+      render={({
+        values,
+        handleChange,
+        errors,
+        touched,
+        handleSubmit,
+        status,
+      }) => (
         <Form
           onSubmit={handleSubmit}
           name="beta-request"
@@ -178,47 +161,59 @@ const RequestForm = () => {
           <input type="hidden" name="bot-field" />
           <input type="hidden" name="form-name" value="beta-request" />
 
-          <Email>
-            <Label>Email</Label>
-            <Input name="email" value={values.email} onChange={handleChange} />
-            <ErrorMessage name="email" component={ErrorText} />
-          </Email>
+          <Email
+            id="email"
+            name="email"
+            label="Email"
+            value={values.email}
+            onChange={handleChange}
+            error={touched.email && Boolean(errors.email)}
+            helperText={touched.email ? errors.email : ""}
+          />
 
-          <Name>
-            <Label>Name</Label>
-            <Input name="name" value={values.name} onChange={handleChange} />
-            <ErrorMessage name="name" component={ErrorText} />
-          </Name>
+          <Name
+            id="name"
+            name="name"
+            label="Name"
+            value={values.name}
+            onChange={handleChange}
+            error={touched.name && Boolean(errors.name)}
+            helperText={touched.name ? errors.name : ""}
+          />
 
-          <Company>
-            <Label>Company</Label>
-            <Input
-              name="company"
-              value={values.company}
-              onChange={handleChange}
-            />
-            <ErrorMessage name="company" component={ErrorText} />
-          </Company>
+          <Company
+            id="company"
+            name="company"
+            label="Company"
+            value={values.company}
+            onChange={handleChange}
+            error={touched.company && Boolean(errors.company)}
+            helperText={touched.company ? errors.company : ""}
+          />
+
           <Subscribers
+            select
+            label="Subscribers"
             name="subscribers"
             value={values.subscribers}
             onChange={handleChange}
           >
-            <option defaultValue>1 - 1,000 subscribers</option>
-            <option value="2000">1,001 - 2,000 subscribers</option>
+            <MenuItem value="1 - 1,000">1 - 1,000 subscribers</MenuItem>
+            <MenuItem value="1,001 - 2,000">1,001 - 2,000 subscribers</MenuItem>
           </Subscribers>
-          <ServiceProviderContainer>
-            <ServiceProvider
-              name="serviceProvider"
-              value={values.serviceProvider}
-              onChange={handleChange}
-            >
-              <option defaultValue>Select email service provider</option>
-              <option value="mailchimp">Mailchimp</option>
-              <option value="klaviyo">Klaviyo</option>
-            </ServiceProvider>
-            <ErrorMessage name="serviceProvider" component={ErrorProvider} />
-          </ServiceProviderContainer>
+          <ServiceProvider
+            select
+            label="Service Providers"
+            name="serviceProvider"
+            value={values.serviceProvider}
+            onChange={handleChange}
+            error={touched.serviceProvider && Boolean(errors.serviceProvider)}
+            helperText={touched.serviceProvider ? errors.serviceProvider : ""}
+          >
+            <MenuItem value="">Select email service provider</MenuItem>
+            <MenuItem value="mailchimp">Mailchimp</MenuItem>
+            <MenuItem value="klaviyo">Klaviyo</MenuItem>
+          </ServiceProvider>
           <StyledButton text="request beta access" type="submit" />
           {status && status.errorMsg && <ErrorSubmission>ff</ErrorSubmission>}
         </Form>
