@@ -114,10 +114,8 @@ const Audiences = () => {
   return (
     <StyledSectionContainer>
       <ContentContainer>
-        <StyledSectionTitle>Activated Audiences</StyledSectionTitle>
-        <StyledSectionSubtitle>
-          Humans influencing other humans
-        </StyledSectionSubtitle>
+        <StyledSectionTitle>Growing Audiences</StyledSectionTitle>
+        <StyledSectionSubtitle>Build brand loyalty</StyledSectionSubtitle>
         <BoxContainer>
           {ContentArray.map((box, i) => {
             let count

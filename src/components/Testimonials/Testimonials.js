@@ -117,31 +117,31 @@ const StyledButton = styled(Button)`
 const TestimonialArray = [
   {
     img: "https://i.picsum.photos/id/431/200/200.jpg",
-    name: "Mark Twain",
+    name: "Jessica M.",
     testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    position: "Marketing Director",
+      "Growly helped engage my customers in a unique way.  My email newsletter grew, my sales were impacted, and it was so easy to use!",
+    position: "",
   },
   {
     img: "https://i.picsum.photos/id/431/200/200.jpg",
-    name: "Mark Twayne",
+    name: "Tim L.",
     testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    position: "Marketing Director",
+      "As an agency this was a great upsell to my clients. We don't need a dev team to implement it, and it provides enough insights for ust to share big wins for the brands we work with.",
+    position: "",
   },
   {
     img: "https://i.picsum.photos/id/431/200/200.jpg",
-    name: "Mark Twizzle",
+    name: "Nancy K.",
     testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    position: "Marketing Director",
+      "I started sending my blogs through email on a weekly basis and with Growly I’m getting more reads than ever!",
+    position: "",
   },
   {
     img: "https://i.picsum.photos/id/431/200/200.jpg",
-    name: "Mark T-Money",
+    name: "Gregg D.",
     testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    position: "Marketing Director",
+      "I gave away incremental gift cards to my restaurant for each milestone. Now my regulars come in more often, and new customers come in all the time!",
+    position: "",
   },
 ]
 
@@ -162,7 +162,7 @@ const Testimonials = () => {
               <TextContainer>
                 <Name>{i.name}</Name>
                 <TestimonialText>{i.testimonial}</TestimonialText>
-                <Position>{i.position}</Position>
+                {i.position !== "" && <Position>{i.position}</Position>}
               </TextContainer>
             </SingleTestimonial>
           ))}

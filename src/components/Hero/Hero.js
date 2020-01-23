@@ -83,10 +83,10 @@ const Hero = () => {
       <StyledContainer>
         <TextContainer>
           <HeroTitle as="h1">
-            <span>Referral system</span> <span>made for newsletters</span>
+            <span>A Referral System</span> <span>Made For Newsletters</span>
           </HeroTitle>
           <HeroSubtext>
-            Activate current subscribers to promote your company
+            Empower your subscribers to promote your brand.
           </HeroSubtext>
           <StyledButton text="Request beta access" onClick={toggleModalOpen} />
         </TextContainer>

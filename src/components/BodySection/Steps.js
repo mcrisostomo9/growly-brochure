@@ -142,21 +142,21 @@ const StyledButton = styled(Button)`
 const StepsArray = [
   {
     icon: icon,
-    title: "Accelerate subscribers",
+    title: "Customized Your Rewards and Milestones",
     body:
-      "When referrals tools are used, newsletters are 3x likely to speed their subscriber list.",
+      "Upload your swag and how many referrals it takes for your subscribers to get it.",
   },
   {
     icon: icon,
-    title: "Award rewards",
+    title: "Beautiful Subscriber Dashboards",
     body:
-      "50% of people are likely to provide a referral when incentive or recognition is offered.",
+      "Each one of your subscribers will have a custom dashboard to see thier progress and access even more tools to help them share your newsletter.",
   },
   {
     icon: icon,
-    title: "Their people are your people",
+    title: "Real Time Data",
     body:
-      "50% of consumers say friends and family are their top source for brand awareness.",
+      "You’ll see how many referrals your subscribers are bringing you in your personalized dashboard.",
   },
 ]
 
@@ -166,11 +166,11 @@ const Steps = ({ logo }) => {
     <StepsSection>
       <TextContainer>
         <StyledSectionTitle>
-          <span>Complete your newsletter,</span>
-          <span>with rewards.</span>
+          <span>Complete Your Newsletter,</span>
+          <span>With Rewards.</span>
         </StyledSectionTitle>
         <StyledSectionSubtitle>
-          We're with you every step of the way.
+          Your subscribers will love this setup.
         </StyledSectionSubtitle>
         <StepsList>
           {StepsArray.map(step => (

@@ -34,17 +34,12 @@ const Setup = () => {
   return (
     <StyledSectionContainer>
       <ContentContainer>
-        <StyledSectionTitle>Activated Set-up in Minutes</StyledSectionTitle>
-        <StyledSectionSubtitle>
-          Humans influencing other humans
-        </StyledSectionSubtitle>
+        <StyledSectionTitle>Set-up in Minutes</StyledSectionTitle>
+        <StyledSectionSubtitle>No Coding Required</StyledSectionSubtitle>
         <SectionContent>
-          We’re an easy-to-use system that integrates into your email stack to
-          influence your subscribers to refer their social circles. Zero coding
-          required. In minutes, your company will build a reward program for
-          your audience & send custom, personalized data inside your emails.
-          Growly is completely behind the scenes, but impacts 69% of your
-          subscribers.
+          We’re an easy to use program that integrates with your email marketing
+          tool. With just a little input from you, we’ll help incentivize your
+          audience to share your newsletter with their friends.
         </SectionContent>
       </ContentContainer>
     </StyledSectionContainer>
