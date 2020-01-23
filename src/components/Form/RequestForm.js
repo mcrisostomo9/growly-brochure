@@ -100,7 +100,7 @@ const RequestForm = () => {
         email: "",
         name: "",
         company: "",
-        subscribers: "1 - 1,000",
+        subscribers: "0 - 500",
         serviceProvider: "",
       }}
       validate={values => {
@@ -198,8 +198,11 @@ const RequestForm = () => {
             value={values.subscribers}
             onChange={handleChange}
           >
-            <MenuItem value="1 - 1,000">1 - 1,000 subscribers</MenuItem>
-            <MenuItem value="1,001 - 2,000">1,001 - 2,000 subscribers</MenuItem>
+            <MenuItem value="0 - 500">0 - 500 subscribers</MenuItem>
+            <MenuItem value="501 - 1,500">501 - 1,500 subscribers</MenuItem>
+            <MenuItem value="1,501 - 3,000">1,501 - 3,000 subscribers</MenuItem>
+            <MenuItem value="3,001 - 4,500">3,001 - 4,500 subscribers</MenuItem>
+            <MenuItem value="4,500+">4,500+ subscribers</MenuItem>
           </Subscribers>
           <ServiceProvider
             select
@@ -211,8 +214,14 @@ const RequestForm = () => {
             helperText={touched.serviceProvider ? errors.serviceProvider : ""}
           >
             <MenuItem value="">Select email service provider</MenuItem>
-            <MenuItem value="mailchimp">Mailchimp</MenuItem>
-            <MenuItem value="klaviyo">Klaviyo</MenuItem>
+            <MenuItem value="Mailchimp">Mailchimp</MenuItem>
+            <MenuItem value="Klaviyo">Klaviyo</MenuItem>
+            <MenuItem value="SendGrid">SendGrid</MenuItem>
+            <MenuItem value="Constant Contact">Constant Contact</MenuItem>
+            <MenuItem value="Campaign Monitor">Campaign Monitor</MenuItem>
+            <MenuItem value="SendinBlue">SendinBlue</MenuItem>
+            <MenuItem value="OmniSend">OmniSend</MenuItem>
+            <MenuItem value="Other">Other</MenuItem>
           </ServiceProvider>
           <StyledButton text="request beta access" type="submit" />
           {status && status.errorMsg && <ErrorSubmission>ff</ErrorSubmission>}
