@@ -61,6 +61,10 @@ const Number = styled.span`
   font-weight: 400;
 
   @media (min-width: ${mediaQuery.m768}) {
+    font-size: 1.75rem;
+  }
+
+  @media (min-width: ${mediaQuery.m1024}) {
     font-size: 2.25rem;
   }
 
