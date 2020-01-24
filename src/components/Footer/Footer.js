@@ -123,6 +123,7 @@ const Footer = () => {
               target="_blank"
               key={i.link}
               aria-label={i.label}
+              rel="noopener"
             >
               {i.icon}
             </SocialIcon>
