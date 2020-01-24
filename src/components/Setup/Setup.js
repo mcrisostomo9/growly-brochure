@@ -37,9 +37,9 @@ const Setup = () => {
         <StyledSectionTitle>Set-up in Minutes</StyledSectionTitle>
         <StyledSectionSubtitle>No Coding Required</StyledSectionSubtitle>
         <SectionContent>
-          We’re an easy to use program that integrates with your email marketing
-          tool. With just a little input from you, we’ll help incentivize your
-          audience to share your newsletter with their friends.
+          We’re an easy to use referral program that integrates with your email
+          marketing tool. With just a little input from you, we’ll help
+          incentivize your audience to share your newsletter with their friends.
         </SectionContent>
       </ContentContainer>
     </StyledSectionContainer>
