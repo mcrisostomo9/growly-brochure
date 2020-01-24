@@ -113,11 +113,11 @@ const customStyles = {
   content: {
     padding: 0,
     border: "none",
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
-    zIndex: 10,
+    top: "5%",
+    right: "5%",
+    left: "5%",
+    bottom: "5%",
+    zIndex: "5%",
   },
 }
 
