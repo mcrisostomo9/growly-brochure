@@ -7,6 +7,10 @@ import ContentContainer from "../Shared/ContentContainer"
 import { mediaQuery } from "../../utils/styles"
 import Button from "../Shared/Button"
 import { Context } from "../../context/Context"
+import t1 from "../../images/testimonial1.jpg"
+import t2 from "../../images/testimonial2.jpg"
+import t3 from "../../images/testimonial3.jpg"
+import t4 from "../../images/testimonial4.jpg"
 
 const StyledSectionContainer = styled(SectionContainer)`
   background: var(--light-grey);
@@ -116,32 +120,32 @@ const StyledButton = styled(Button)`
 
 const TestimonialArray = [
   {
-    img: "https://i.picsum.photos/id/431/200/200.jpg",
+    img: t1,
     name: "Jessica M.",
     testimonial:
       "Growly helped engage my customers in a unique way.  My email newsletter grew, my sales were impacted, and it was so easy to use!",
-    position: "",
+    position: "CEO, Founder Winged CBD",
   },
   {
-    img: "https://i.picsum.photos/id/431/200/200.jpg",
+    img: t2,
     name: "Tim L.",
     testimonial:
       "As an agency this was a great upsell to my clients. We don't need a dev team to implement it, and it provides enough insights for ust to share big wins for the brands we work with.",
-    position: "",
+    position: "SVP, Blue Light Media",
   },
   {
-    img: "https://i.picsum.photos/id/431/200/200.jpg",
+    img: t3,
     name: "Nancy K.",
     testimonial:
       "I started sending my blogs through email on a weekly basis and with Growly I’m getting more reads than ever!",
-    position: "",
+    position: "Influencer/Blogger",
   },
   {
-    img: "https://i.picsum.photos/id/431/200/200.jpg",
+    img: t4,
     name: "Gregg D.",
     testimonial:
       "I gave away incremental gift cards to my restaurant for each milestone. Now my regulars come in more often, and new customers come in all the time!",
-    position: "",
+    position: "Owner, Wingnuts Restaurant",
   },
 ]
 
