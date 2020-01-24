@@ -86,6 +86,7 @@ const StatisticLabel = styled.div`
   color: var(--dark-grey);
   text-align: right;
   margin-top: 0.5rem;
+  text-transform: capitalize;
 `
 
 const ContentArray = [
