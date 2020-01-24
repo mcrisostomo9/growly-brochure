@@ -117,7 +117,7 @@ const customStyles = {
     right: "5%",
     left: "5%",
     bottom: "5%",
-    zIndex: "5%",
+    zIndex: 10,
   },
 }
 
