@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import GatsbyImage from "gatsby-image"
 import styled from "styled-components"
 import SectionContainer from "../Shared/SectionContainer"
 import SectionTitle from "../Shared/SectionTitle"
@@ -7,10 +8,7 @@ import ContentContainer from "../Shared/ContentContainer"
 import { mediaQuery } from "../../utils/styles"
 import Button from "../Shared/Button"
 import { Context } from "../../context/Context"
-import t1 from "../../images/testimonial1.jpg"
-import t2 from "../../images/testimonial2.jpg"
-import t3 from "../../images/testimonial3.jpg"
-import t4 from "../../images/testimonial4.jpg"
+import { graphql, useStaticQuery } from "gatsby"
 
 const StyledSectionContainer = styled(SectionContainer)`
   background: var(--light-grey);
@@ -59,20 +57,25 @@ const SingleTestimonial = styled.div`
   justify-content: center;
 `
 
-const TestimonialImg = styled.img`
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 50%;
+const TestimonialImgWrapper = styled.div`
+  width: 100px;
+  height: 100px;
 
   @media (min-width: ${mediaQuery.m1024}) {
-    max-width: 125px;
-    max-height: 125px;
+    width: 125px;
+    height: 125px;
   }
 
   @media (min-width: ${mediaQuery.m1440}) {
-    max-width: 150px;
-    max-height: 150px;
+    width: 150px;
+    height: 150px;
   }
+`
+
+const StyledImage = styled(GatsbyImage)`
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
 `
 
 const TextContainer = styled.div`
@@ -120,28 +123,24 @@ const StyledButton = styled(Button)`
 
 const TestimonialArray = [
   {
-    img: t1,
     name: "Jessica M.",
     testimonial:
       "Growly helped engage my customers in a unique way.  My email newsletter grew, my sales were impacted, and it was so easy to use!",
     position: "CEO, Founder Winged CBD",
   },
   {
-    img: t2,
-    name: "Tim L.",
-    testimonial:
-      "As an agency this was a great upsell to my clients. We don't need a dev team to implement it, and it provides enough insights for ust to share big wins for the brands we work with.",
-    position: "SVP, Blue Light Media",
-  },
-  {
-    img: t3,
     name: "Nancy K.",
     testimonial:
       "I started sending my blogs through email on a weekly basis and with Growly I’m getting more reads than ever!",
     position: "Influencer/Blogger",
   },
   {
-    img: t4,
+    name: "Tim L.",
+    testimonial:
+      "As an agency this was a great upsell to my clients. We don't need a dev team to implement it, and it provides enough insights for ust to share big wins for the brands we work with.",
+    position: "SVP, Blue Light Media",
+  },
+  {
     name: "Gregg D.",
     testimonial:
       "I gave away incremental gift cards to my restaurant for each milestone. Now my regulars come in more often, and new customers come in all the time!",
@@ -151,7 +150,14 @@ const TestimonialArray = [
 
 const Testimonials = () => {
   const { toggleModalOpen } = useContext(Context)
-
+  const data = useStaticQuery(TESTIMONIALS_QUERY)
+  const imgArray = [
+    data.testimonial1,
+    data.testimonial2,
+    data.testimonial3,
+    data.testimonial4,
+  ]
+  console.log(imgArray)
   return (
     <StyledSectionContainer>
       <StyledSectionTitle>Take their word for it</StyledSectionTitle>
@@ -160,13 +166,15 @@ const Testimonials = () => {
       </StyledSectionSubtitle>
       <StyledContentContainer>
         <GridTestimonial>
-          {TestimonialArray.map(i => (
+          {TestimonialArray.map((i, index) => (
             <SingleTestimonial key={i.name}>
-              <TestimonialImg src={i.img} />
+              <TestimonialImgWrapper>
+                <StyledImage fluid={imgArray[index].childImageSharp.fluid} />
+              </TestimonialImgWrapper>
               <TextContainer>
                 <Name>{i.name}</Name>
                 <TestimonialText>{i.testimonial}</TestimonialText>
-                {i.position !== "" && <Position>{i.position}</Position>}
+                <Position>{i.position}</Position>
               </TextContainer>
             </SingleTestimonial>
           ))}
@@ -178,3 +186,36 @@ const Testimonials = () => {
 }
 
 export default Testimonials
+
+export const TESTIMONIALS_QUERY = graphql`
+  query TestimonialImages {
+    testimonial1: file(relativePath: { eq: "testimonial1.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    testimonial2: file(relativePath: { eq: "testimonial2.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    testimonial3: file(relativePath: { eq: "testimonial3.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    testimonial4: file(relativePath: { eq: "testimonial4.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+  }
+`
