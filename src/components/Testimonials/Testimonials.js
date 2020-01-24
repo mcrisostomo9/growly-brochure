@@ -204,28 +204,28 @@ export const TESTIMONIALS_QUERY = graphql`
   query TestimonialImages {
     testimonial1: file(relativePath: { eq: "testimonial1.jpg" }) {
       childImageSharp {
-        fluid(quality: 100) {
+        fluid(quality: 70) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
     testimonial2: file(relativePath: { eq: "testimonial2.jpg" }) {
       childImageSharp {
-        fluid(quality: 100) {
+        fluid(quality: 70) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
     testimonial3: file(relativePath: { eq: "testimonial3.jpg" }) {
       childImageSharp {
-        fluid(quality: 100) {
+        fluid(quality: 70) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
     testimonial4: file(relativePath: { eq: "testimonial4.jpg" }) {
       childImageSharp {
-        fluid(quality: 100) {
+        fluid(quality: 70) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
