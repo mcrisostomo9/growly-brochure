@@ -37,7 +37,6 @@ const StatisticBox = styled.div`
   margin-bottom: 1rem;
   max-width: 330px;
   width: 100%;
-  border-radius: 10px;
 
   @media (min-width: ${mediaQuery.m768}) {
     width: initial;
@@ -50,6 +49,7 @@ const InnerContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
 `
 
 const StatImage = styled.img``
