@@ -7,9 +7,9 @@ import SectionTitle from "../Shared/SectionTitle"
 import SectionSubtitle from "../Shared/SectionSubtitle"
 import Button from "../Shared/Button"
 import { Context } from "../../context/Context"
-import accelerate from "../../images/accelerate.svg"
-import award from "../../images/award.svg"
-import people from "../../images/people.svg"
+import customize from "../../images/customize.svg"
+import dashboards from "../../images/dashboards.svg"
+import data from "../../images/data.svg"
 
 const StepsSection = styled(ContentContainer)`
   display: grid;
@@ -160,19 +160,19 @@ const StyledButton = styled(Button)`
 
 const StepsArray = [
   {
-    icon: accelerate,
+    icon: customize,
     title: "Customized Your Rewards and Milestones",
     body:
       "Upload your swag and how many referrals it takes for your subscribers to get it.",
   },
   {
-    icon: award,
+    icon: dashboards,
     title: "Beautiful Subscriber Dashboards",
     body:
       "Each one of your subscribers will have a custom dashboard to see thier progress and access even more tools to help them share your newsletter.",
   },
   {
-    icon: people,
+    icon: data,
     title: "Real Time Data",
     body:
       "You’ll see how many referrals your subscribers are bringing you in your personalized dashboard.",
