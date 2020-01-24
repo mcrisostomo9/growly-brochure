@@ -157,7 +157,7 @@ const Testimonials = () => {
     data.testimonial3,
     data.testimonial4,
   ]
-  console.log(imgArray)
+
   return (
     <StyledSectionContainer>
       <StyledSectionTitle>Take their word for it</StyledSectionTitle>
