@@ -5,9 +5,11 @@ import { mediaQuery } from "../../utils/styles"
 import Img from "gatsby-image"
 import SectionTitle from "../Shared/SectionTitle"
 import SectionSubtitle from "../Shared/SectionSubtitle"
-import icon from "../../images/steps-icon.svg"
 import Button from "../Shared/Button"
 import { Context } from "../../context/Context"
+import accelerate from "../../images/accelerate.svg"
+import award from "../../images/award.svg"
+import people from "../../images/people.svg"
 
 const StepsSection = styled(ContentContainer)`
   display: grid;
@@ -92,10 +94,19 @@ const StepContainer = styled.div`
   flex-direction: row;
 `
 
-const Icon = styled.img`
+const IconContainer = styled.div`
+  background: #fff;
   grid-row: 1/3;
   grid-column: 1/2;
   align-self: center;
+  border-radius: 10px;
+  width: 80px;
+  height: 80px;
+
+  img {
+    height: 80px;
+    width: 80px;
+  }
 `
 
 const StepTextContainer = styled.div`
@@ -149,19 +160,19 @@ const StyledButton = styled(Button)`
 
 const StepsArray = [
   {
-    icon: icon,
+    icon: accelerate,
     title: "Customized Your Rewards and Milestones",
     body:
       "Upload your swag and how many referrals it takes for your subscribers to get it.",
   },
   {
-    icon: icon,
+    icon: award,
     title: "Beautiful Subscriber Dashboards",
     body:
       "Each one of your subscribers will have a custom dashboard to see thier progress and access even more tools to help them share your newsletter.",
   },
   {
-    icon: icon,
+    icon: people,
     title: "Real Time Data",
     body:
       "You’ll see how many referrals your subscribers are bringing you in your personalized dashboard.",
@@ -183,7 +194,9 @@ const Steps = ({ logo }) => {
         <StepsList>
           {StepsArray.map(step => (
             <StepContainer key={step.title}>
-              <Icon src={step.icon} />
+              <IconContainer>
+                <img src={step.icon} alt={`${step.title}} icon`} />
+              </IconContainer>
               <StepTextContainer>
                 <StepTitle>{step.title}</StepTitle>
                 <StepBody>{step.body}</StepBody>

@@ -6,7 +6,9 @@ import SectionTitle from "../Shared/SectionTitle"
 import ContentContainer from "../Shared/ContentContainer"
 import SectionSubtitle from "../Shared/SectionSubtitle"
 import { mediaQuery } from "../../utils/styles"
-import explore from "../../images/explore.svg"
+import subscribers from "../../images/subscribers.svg"
+import referrals from "../../images/referrals.svg"
+import rewards from "../../images/rewards.svg"
 
 const StyledSectionContainer = styled(SectionContainer)`
   background: var(--light-grey);
@@ -52,7 +54,27 @@ const InnerContainer = styled.div`
   border-radius: 10px;
 `
 
-const StatImage = styled.img``
+const StatImage = styled.img`
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  max-height: 75px;
+
+  @media (min-width: ${mediaQuery.m768}) {
+    max-width: 50px;
+    max-height: 30px;
+  }
+
+  @media (min-width: 900px) {
+    max-width: 75px;
+    max-height: 50px;
+  }
+
+  @media (min-width: ${mediaQuery.m1280}) {
+    max-width: 100px;
+    max-height: 75px;
+  }
+`
 
 const Number = styled.span`
   color: #fff;
@@ -90,9 +112,9 @@ const StatisticLabel = styled.div`
 `
 
 const ContentArray = [
-  { label: "total subscribers", icon: explore },
-  { label: "referrals made", icon: explore },
-  { label: "rewards claimed", icon: explore },
+  { label: "total subscribers", icon: subscribers },
+  { label: "referrals made", icon: referrals },
+  { label: "rewards claimed", icon: rewards },
 ]
 
 const Audiences = () => {
