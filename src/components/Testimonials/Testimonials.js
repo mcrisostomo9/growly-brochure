@@ -73,10 +73,7 @@ const TestimonialImgWrapper = styled.div`
 `
 
 const StyledImage = styled(GatsbyImage)`
-  //width: 100%;
-  //height: auto;
   border-radius: 50%;
-
   width: 100px;
   height: 100px;
 
