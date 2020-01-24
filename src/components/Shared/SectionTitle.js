@@ -4,6 +4,7 @@ import { mediaQuery } from "../../utils/styles"
 const SectionTitle = styled.h2`
   font-size: 1.75rem;
   margin-bottom: 0;
+  text-transform: capitalize;
 
   @media (min-width: ${mediaQuery.m768}) {
     font-size: 2rem;
