@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import { backgroundGatsbyImage, mediaQuery } from "../../utils/styles"
 import styled from "styled-components"
 import RequestForm from "../Form/RequestForm"
+import Logo from "../Logo/Logo"
 
 const CloseButton = styled.button`
   background: transparent;
@@ -124,7 +125,7 @@ const RequestAccessModal = () => {
   const { isModalOpen, toggleModalOpen, isRequestReceived } = useContext(
     Context
   )
-  const { heroBg, logo } = useStaticQuery(MODAL_QUERY)
+  const { heroBg } = useStaticQuery(MODAL_QUERY)
 
   return (
     <Modal
@@ -140,7 +141,7 @@ const RequestAccessModal = () => {
       <CloseButton onClick={toggleModalOpen}>X</CloseButton>
       <ModalContentContainer>
         <LogoContainer>
-          <Img fluid={logo.childImageSharp.fluid} alt="Growly Logo" />
+          <Logo />
         </LogoContainer>
         {isRequestReceived ? (
           <TextContainer>
@@ -172,13 +173,6 @@ export default RequestAccessModal
 export const MODAL_QUERY = graphql`
   query ModalQuery {
     heroBg: file(relativePath: { eq: "modal-bg.png" }) {
-      childImageSharp {
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    logo: file(relativePath: { eq: "logo.png" }) {
       childImageSharp {
         fluid(quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64

@@ -1,12 +1,12 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import ContentContainer from "../Shared/ContentContainer"
-import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
 import Button from "../Shared/Button"
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa"
 import { mediaQuery } from "../../utils/styles"
 import { Context } from "../../context/Context"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 
 const Root = styled.footer`
   background: var(--dark-grey);
@@ -29,7 +29,7 @@ const StyledContentContainer = styled(ContentContainer)`
   }
 `
 
-const Logo = styled(Img)`
+const StyledLogo = styled(Img)`
   max-width: 150px;
   width: 100%;
   grid-area: logo;
@@ -105,13 +105,13 @@ const SocialArray = [
 ]
 
 const Footer = () => {
-  const data = useStaticQuery(LOGO_QUERY)
   const { toggleModalOpen } = useContext(Context)
+  const { logo } = useStaticQuery(FOOTER_QUERY)
 
   return (
     <Root>
       <StyledContentContainer>
-        <Logo fluid={data.logo.childImageSharp.fluid} />
+        <StyledLogo fluid={logo.childImageSharp.fluid} alt="Growly Logo" />
         <Copyright>
           ©{new Date().getFullYear()} All Rights Reserved, Growly
         </Copyright>
@@ -136,8 +136,8 @@ const Footer = () => {
 
 export default Footer
 
-export const LOGO_QUERY = graphql`
-  query LogoQuery {
+export const FOOTER_QUERY = graphql`
+  query FooterQuery {
     logo: file(relativePath: { eq: "footer-logo.png" }) {
       childImageSharp {
         fluid(quality: 100) {

@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import ContentContainer from "../Shared/ContentContainer"
-import logo from "../../images/logo.png"
 import Button from "../Shared/Button"
 import { mediaQuery } from "../../utils/styles"
 import { Context } from "../../context/Context"
+import Logo from "../Logo/Logo"
 
 const Root = styled(ContentContainer)`
   padding: 1rem;
@@ -24,7 +24,7 @@ const Root = styled(ContentContainer)`
   }
 `
 
-const Logo = styled.img`
+const StyledLogo = styled(Logo)`
   width: 100%;
   height: auto;
   max-width: 125px;
@@ -65,7 +65,7 @@ const Header = () => {
   const { toggleModalOpen } = useContext(Context)
   return (
     <Root as="header">
-      <Logo src={logo} alt="Growly Logo" />
+      <StyledLogo />
       <HeaderButton text="Request Beta Access" onClick={toggleModalOpen} />
     </Root>
   )
