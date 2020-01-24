@@ -90,14 +90,17 @@ const SocialArray = [
   {
     icon: <FaInstagram />,
     link: "https://instagram.com/growlyapp/",
+    label: "Growly Instagram Link",
   },
   {
     icon: <FaTwitter />,
     link: "https://twitter.com/growlyapp",
+    label: "Growly Twitter Link",
   },
   {
     icon: <FaFacebookF />,
     link: "https://facebook.com/growlyapp",
+    label: "Growly Facebook Link",
   },
 ]
 
@@ -115,7 +118,12 @@ const Footer = () => {
         <StyledButton text="Request Beta access" onClick={toggleModalOpen} />
         <SocialContainer>
           {SocialArray.map(i => (
-            <SocialIcon href={i.link} target="_blank" key={i.link}>
+            <SocialIcon
+              href={i.link}
+              target="_blank"
+              key={i.link}
+              aria-label={i.label}
+            >
               {i.icon}
             </SocialIcon>
           ))}

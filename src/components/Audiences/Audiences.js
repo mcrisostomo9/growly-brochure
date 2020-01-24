@@ -157,7 +157,7 @@ const Audiences = () => {
             return (
               <StatisticBox key={box.label}>
                 <InnerContainer>
-                  <StatImage src={box.icon} />
+                  <StatImage src={box.icon} alt={`${box.label} icon`} />
                   <Number>{count}</Number>
                 </InnerContainer>
                 <StatisticLabel>{box.label}</StatisticLabel>
