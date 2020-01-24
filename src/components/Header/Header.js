@@ -27,7 +27,11 @@ const Root = styled(ContentContainer)`
 const Logo = styled.img`
   width: 100%;
   height: auto;
-  max-width: 150px;
+  max-width: 125px;
+
+  @media (min-width: ${mediaQuery.m640}) {
+    max-width: 150px;
+  }
 
   @media (min-width: ${mediaQuery.m768}) {
     max-width: 175px;
