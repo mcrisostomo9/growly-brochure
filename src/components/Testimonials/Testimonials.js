@@ -9,6 +9,7 @@ import { mediaQuery } from "../../utils/styles"
 import Button from "../Shared/Button"
 import { Context } from "../../context/Context"
 import { graphql, useStaticQuery } from "gatsby"
+import RequestForm from "../Form/RequestForm"
 
 const StyledSectionContainer = styled(SectionContainer)`
   background: var(--light-grey);
@@ -170,6 +171,7 @@ const Testimonials = () => {
 
   return (
     <StyledSectionContainer>
+      <RequestForm />
       <StyledSectionTitle>Take their word for it</StyledSectionTitle>
       <StyledSectionSubtitle>
         Brands, agencies, and influencers love the growth
