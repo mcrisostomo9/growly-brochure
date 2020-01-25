@@ -56,9 +56,9 @@ const InnerContainer = styled.div`
 
 const StatImage = styled.img`
   width: 100%;
-  max-width: 100px;
+  max-width: 75px;
   height: auto;
-  max-height: 75px;
+  max-height: 50px;
 
   @media (min-width: ${mediaQuery.m768}) {
     max-width: 50px;
@@ -69,16 +69,11 @@ const StatImage = styled.img`
     max-width: 75px;
     max-height: 50px;
   }
-
-  @media (min-width: ${mediaQuery.m1280}) {
-    max-width: 100px;
-    max-height: 75px;
-  }
 `
 
 const Number = styled.span`
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-left: 1rem;
   font-family: "Proxima Nova", serif;
   font-weight: 400;
@@ -93,14 +88,6 @@ const Number = styled.span`
 
   @media (min-width: ${mediaQuery.m1280}) {
     font-size: 2.5rem;
-  }
-
-  @media (min-width: ${mediaQuery.m1440}) {
-    font-size: 3rem;
-  }
-
-  @media (min-width: ${mediaQuery.m1680}) {
-    font-size: 4rem;
   }
 `
 

@@ -154,10 +154,10 @@ const RequestAccessModal = () => {
         ) : (
           <>
             <TextContainer>
-              <RequestTitle>Beta Access Request</RequestTitle>
+              <RequestTitle>Want to give it a go?</RequestTitle>
               <RequestSubtitle>
-                Have a newsletter? We're inviting a selected few to try our
-                signature solution.
+                We're accepting a select few to try Growly. Beta users receive
+                grandfathered pricing & long-term perks!
               </RequestSubtitle>
             </TextContainer>
             <RequestForm />

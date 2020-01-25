@@ -91,6 +91,27 @@ export const encode = data => {
     .join("&")
 }
 
+const serviceProviderArray = [
+  "Active Campaign",
+  "AWeber",
+  "Campaign Monitor",
+  "Constant Contact",
+  "ConvertKit",
+  "Drip",
+  "Elastic",
+  "Emma",
+  "Keap",
+  "Klaviyo",
+  "MailerLite",
+  "Mailchimp",
+  "MailGun",
+  "OmniSend",
+  "Send Grid",
+  "SendsinBlue",
+  "Substack",
+  "Not listed, other",
+]
+
 const RequestForm = () => {
   const { toggleRequestReceived } = useContext(Context)
 
@@ -207,11 +228,21 @@ const RequestForm = () => {
             value={values.subscribers}
             onChange={handleChange}
           >
-            <MenuItem value="0 - 500">0 - 500 subscribers</MenuItem>
-            <MenuItem value="501 - 1,500">501 - 1,500 subscribers</MenuItem>
-            <MenuItem value="1,501 - 3,000">1,501 - 3,000 subscribers</MenuItem>
-            <MenuItem value="3,001 - 4,500">3,001 - 4,500 subscribers</MenuItem>
-            <MenuItem value="4,500+">4,500+ subscribers</MenuItem>
+            <MenuItem value="500 - 2,000">500 - 2,000 subscribers</MenuItem>
+            <MenuItem value="2,000 - 10,00">2,000 - 10,00 subscribers</MenuItem>
+            <MenuItem value="10,001 - 50,000">
+              10,001 - 50,000 subscribers
+            </MenuItem>
+            <MenuItem value="50,001 - 100,000">
+              50,001 - 100,000 subscribers
+            </MenuItem>
+            <MenuItem value="100,001 - 250,000">
+              100,001 - 250,000 subscribers
+            </MenuItem>
+            <MenuItem value="250,001 - 500,000">
+              250,001 - 500,000 subscribers
+            </MenuItem>
+            <MenuItem value="500,000+">500,000+ subscribers</MenuItem>
           </Subscribers>
           <ServiceProvider
             select
@@ -223,14 +254,11 @@ const RequestForm = () => {
             helperText={touched.serviceProvider ? errors.serviceProvider : ""}
           >
             <MenuItem value="">Select email service provider</MenuItem>
-            <MenuItem value="Mailchimp">Mailchimp</MenuItem>
-            <MenuItem value="Klaviyo">Klaviyo</MenuItem>
-            <MenuItem value="SendGrid">SendGrid</MenuItem>
-            <MenuItem value="Constant Contact">Constant Contact</MenuItem>
-            <MenuItem value="Campaign Monitor">Campaign Monitor</MenuItem>
-            <MenuItem value="SendinBlue">SendinBlue</MenuItem>
-            <MenuItem value="OmniSend">OmniSend</MenuItem>
-            <MenuItem value="Other">Other</MenuItem>
+            {serviceProviderArray.map(i => (
+              <MenuItem key={i} value={i}>
+                {i}
+              </MenuItem>
+            ))}
           </ServiceProvider>
           <StyledButton text="request beta access" type="submit" />
           {status && status.errorMsg && (

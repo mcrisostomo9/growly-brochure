@@ -18,7 +18,9 @@ const HowItWorks = ({ howImage }) => {
   return (
     <HowItWorksSection>
       <SectionTitle>How it works</SectionTitle>
-      <SectionSubtitle>Growly works with your marketing stack</SectionSubtitle>
+      <SectionSubtitle>
+        Works directly with favorite email service provider
+      </SectionSubtitle>
       <StyledImg fluid={howImage.childImageSharp.fluid} />
     </HowItWorksSection>
   )

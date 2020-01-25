@@ -172,7 +172,7 @@ const Testimonials = () => {
     <StyledSectionContainer>
       <StyledSectionTitle>Take their word for it</StyledSectionTitle>
       <StyledSectionSubtitle>
-        Humans influencing other humans
+        Brands, agencies, and influencers love the growth
       </StyledSectionSubtitle>
       <StyledContentContainer>
         <GridTestimonial>
