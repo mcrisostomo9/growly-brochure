@@ -129,7 +129,7 @@ const RequestForm = () => {
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "form-name": "beta-request", ...values }),
+          body: encode({ "form-name": "growly-beta", ...values }),
         })
           .then(res => {
             console.log(res)
@@ -162,13 +162,13 @@ const RequestForm = () => {
       }) => (
         <Form
           onSubmit={handleSubmit}
-          name="beta-request"
+          name="growly-beta"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="bot-field" />
-          <input type="hidden" name="form-name" value="beta-request" />
+          <input type="hidden" name="form-name" value="growly-beta" />
 
           <Email
             id="email"
