@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 import ContentContainer from "../Shared/ContentContainer"
 import Button from "../Shared/Button"
@@ -24,7 +25,7 @@ const Root = styled(ContentContainer)`
   }
 `
 
-const StyledLogo = styled(Logo)`
+const StyledLogo = styled(Link)`
   width: 100%;
   height: auto;
   max-width: 125px;
@@ -65,7 +66,9 @@ const Header = () => {
   const { toggleModalOpen } = useContext(Context)
   return (
     <Root as="header">
-      <StyledLogo />
+      <StyledLogo to="/">
+        <Logo />
+      </StyledLogo>
       <HeaderButton text="Request Beta Access" onClick={toggleModalOpen} />
     </Root>
   )

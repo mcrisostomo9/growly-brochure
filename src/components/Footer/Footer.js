@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import ContentContainer from "../Shared/ContentContainer"
 import Button from "../Shared/Button"
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa"
@@ -29,7 +30,7 @@ const StyledContentContainer = styled(ContentContainer)`
   }
 `
 
-const StyledLogo = styled(Img)`
+const StyledLink = styled(Link)`
   max-width: 150px;
   width: 100%;
   grid-area: logo;
@@ -111,7 +112,9 @@ const Footer = () => {
   return (
     <Root>
       <StyledContentContainer>
-        <StyledLogo fluid={logo.childImageSharp.fluid} alt="Growly Logo" />
+        <StyledLink to="/">
+          <Img fluid={logo.childImageSharp.fluid} alt="Growly Logo" />
+        </StyledLink>
         <Copyright>
           ©{new Date().getFullYear()} All Rights Reserved, Growly
         </Copyright>
