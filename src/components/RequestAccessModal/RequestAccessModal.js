@@ -46,29 +46,8 @@ const ModalContentContainer = styled.div`
 const LogoContainer = styled.div`
   width: 100%;
   height: auto;
-  max-width: 200px;
+  max-width: 125px;
   margin: 0 auto;
-
-  @media (min-width: ${mediaQuery.m1024}) {
-    max-width: 250px;
-  }
-
-  @media (min-width: ${mediaQuery.m1280}) {
-    max-width: 300px;
-  }
-
-  @media (min-width: ${mediaQuery.m1440}) {
-    max-width: 325px;
-  }
-
-  @media (min-width: ${mediaQuery.m1680}) {
-    max-width: 380px;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-  }
 `
 
 const TextContainer = styled.div`
@@ -109,7 +88,7 @@ const ReceivedSubtitle = styled(RequestSubtitle)`
 `
 
 const customStyles = {
-  overlay: { zIndex: 10 },
+  overlay: { zIndex: 10, backgroundColor: "rgba(230, 230, 230, 0.75)" },
   content: {
     padding: 0,
     border: "none",
@@ -125,7 +104,7 @@ const RequestAccessModal = () => {
   const { isModalOpen, toggleModalOpen, isRequestReceived } = useContext(
     Context
   )
-  const { heroBg } = useStaticQuery(MODAL_QUERY)
+  const { heroBg, logo } = useStaticQuery(MODAL_QUERY)
 
   return (
     <Modal
@@ -141,14 +120,14 @@ const RequestAccessModal = () => {
       <CloseButton onClick={toggleModalOpen}>X</CloseButton>
       <ModalContentContainer>
         <LogoContainer>
-          <Logo />
+          <Img fluid={logo.childImageSharp.fluid} alt="Growly Logo" />
         </LogoContainer>
         {isRequestReceived ? (
           <TextContainer>
             <RequestTitle>Request Received!</RequestTitle>
             <ReceivedSubtitle>
-              You’re in line! We’ll circle back soon & be in touch with next
-              steps. <span>Grow-on!</span>
+              We're looking for beta users today. We'll be in touch very soon to
+              discuss next steps.<span>Grow-on!</span>
             </ReceivedSubtitle>
           </TextContainer>
         ) : (
@@ -173,6 +152,13 @@ export default RequestAccessModal
 export const MODAL_QUERY = graphql`
   query ModalQuery {
     heroBg: file(relativePath: { eq: "modal-bg.png" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    logo: file(relativePath: { eq: "logo-white.png" }) {
       childImageSharp {
         fluid(quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64

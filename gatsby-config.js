@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Growly | Grow your email newsletter.`,
-    description: `Growly Lorem`,
+    title: `"A Referral System made For Newsletters"`,
+    description: `You have an incredible newsletter that everyone should read. You’ve tried ads, social media, podcasts plugs - everything to grow your list. Now you can attract new subscribers through the power of word-of-mouth. We’re Growly - a referral system made for newsletters.`,
     author: `@mcrisostomo9`,
   },
   plugins: [

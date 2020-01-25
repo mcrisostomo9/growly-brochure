@@ -147,7 +147,7 @@ const TestimonialArray = [
   {
     name: "Tim L.",
     testimonial:
-      "As an agency this was a great upsell to my clients. We don't need a dev team to implement it, and it provides enough insights for ust to share big wins for the brands we work with.",
+      "As an agency this was a great upsell to my clients. We don't need a dev team to implement it, and it provides enough insights for us to share big wins for the brands we work with.",
     position: "SVP, Blue Light Media",
   },
   {

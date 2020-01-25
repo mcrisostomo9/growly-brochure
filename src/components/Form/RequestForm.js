@@ -246,7 +246,7 @@ const RequestForm = () => {
           </Subscribers>
           <ServiceProvider
             select
-            label="Service Providers"
+            label="Service Provider"
             name="serviceProvider"
             value={values.serviceProvider}
             onChange={handleChange}
