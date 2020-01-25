@@ -182,9 +182,9 @@ const RequestForm = () => {
         status,
       }) => (
         <Form
-          onSubmit={handleSubmit}
           name="growly-beta"
           method="post"
+          onSubmit={handleSubmit}
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
