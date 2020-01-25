@@ -121,7 +121,7 @@ const RequestForm = () => {
         email: "",
         name: "",
         company: "",
-        subscribers: "500 - 2000",
+        subscribers: "500 - 2,000",
         serviceProvider: "",
       }}
       validate={values => {
@@ -188,7 +188,6 @@ const RequestForm = () => {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="bot-field" />
           <input type="hidden" name="form-name" value="growly-beta" />
 
           <Email
