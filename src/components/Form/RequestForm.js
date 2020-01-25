@@ -121,7 +121,7 @@ const RequestForm = () => {
         email: "",
         name: "",
         company: "",
-        subscribers: "0 - 500",
+        subscribers: "500 - 2000",
         serviceProvider: "",
       }}
       validate={values => {
@@ -229,7 +229,7 @@ const RequestForm = () => {
             onChange={handleChange}
           >
             <MenuItem value="500 - 2,000">500 - 2,000 subscribers</MenuItem>
-            <MenuItem value="2,000 - 10,00">2,000 - 10,00 subscribers</MenuItem>
+            <MenuItem value="2,001 - 10,00">2,000 - 10,00 subscribers</MenuItem>
             <MenuItem value="10,001 - 50,000">
               10,001 - 50,000 subscribers
             </MenuItem>
