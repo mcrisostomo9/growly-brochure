@@ -12,7 +12,6 @@ const Logo = ({ className }) => {
     />
   )
 }
-
 export default Logo
 
 export const LOGO_QUERY = graphql`
