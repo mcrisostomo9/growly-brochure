@@ -133,8 +133,15 @@ const RequestForm = () => {
         })
           .then(res => {
             console.log(res)
-            actions.setSubmitting(false)
-            toggleRequestReceived()
+            if (res.status === 404) {
+              actions.setStatus({
+                errorMsg: "There was an error submitting the form.",
+              })
+              actions.setSubmitting(false)
+            } else {
+              actions.setSubmitting(false)
+              toggleRequestReceived()
+            }
           })
           .catch(err => {
             console.log(err)
