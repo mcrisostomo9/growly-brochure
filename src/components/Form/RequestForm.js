@@ -233,7 +233,9 @@ const RequestForm = () => {
             <MenuItem value="Other">Other</MenuItem>
           </ServiceProvider>
           <StyledButton text="request beta access" type="submit" />
-          {status && status.errorMsg && <ErrorSubmission>ff</ErrorSubmission>}
+          {status && status.errorMsg && (
+            <ErrorSubmission>{status.errorMsg}</ErrorSubmission>
+          )}
         </Form>
       )}
     />
