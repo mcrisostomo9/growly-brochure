@@ -161,7 +161,7 @@ const StyledButton = styled(Button)`
 const StepsArray = [
   {
     icon: customize,
-    title: "Customized Your Rewards and Milestones",
+    title: "Customized Your Rewards",
     body:
       "Upload your swag and how many referrals it takes for your subscribers to get it.",
   },
@@ -169,13 +169,13 @@ const StepsArray = [
     icon: dashboards,
     title: "Beautiful Subscriber Dashboards",
     body:
-      "Each one of your subscribers will have a custom dashboard to see thier progress and access even more tools to help them share your newsletter.",
+      "Each one of your subscribers will have a custom dashboard to see their progress and access even more tools to help them share.",
   },
   {
     icon: data,
     title: "Real Time Data",
     body:
-      "You’ll see how many referrals your subscribers are bringing you in your personalized dashboard.",
+      "Through your personal dashboard, track how many referrals your subscribers make, how many convert, and rewards received.",
   },
 ]
 
