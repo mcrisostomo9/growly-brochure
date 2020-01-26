@@ -194,14 +194,8 @@ const RequestForm = () => {
             console.log(err)
           })
       }}
-      render={({
-        values,
-        handleChange,
-        errors,
-        touched,
-        handleSubmit,
-        status,
-      }) => (
+    >
+      {({ values, handleChange, errors, touched, handleSubmit, status }) => (
         <Form
           name="growly-beta"
           method="post"
@@ -210,7 +204,6 @@ const RequestForm = () => {
           data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="form-name" value="growly-beta" />
-
           <Email
             id="email"
             name="email"
@@ -247,7 +240,7 @@ const RequestForm = () => {
             <NativeSelect
               name="subscribers"
               value={values.subscribers}
-              onChange={handleChange}
+              onChange={handleChange("subscribers")}
               inputProps={{
                 name: "subscribers",
                 id: "subscribers-native-label-placeholder",
@@ -274,6 +267,7 @@ const RequestForm = () => {
             <InputLabel
               shrink
               htmlFor="service-provider-native-label-placeholder"
+              error={touched.serviceProvider && Boolean(errors.serviceProvider)}
             >
               Service Provider
             </InputLabel>
@@ -284,9 +278,8 @@ const RequestForm = () => {
               }}
               name="serviceProvider"
               value={values.serviceProvider}
-              onChange={handleChange}
+              onChange={handleChange("serviceProvider")}
               error={touched.serviceProvider && Boolean(errors.serviceProvider)}
-              helperText={touched.serviceProvider ? errors.serviceProvider : ""}
             >
               {serviceProviderArray.map(i => (
                 <option key={i} value={i}>
@@ -294,7 +287,7 @@ const RequestForm = () => {
                 </option>
               ))}
             </NativeSelect>
-            {errors.serviceProvider && (
+            {errors.serviceProvider && touched.serviceProvider && (
               <FormHelperText error>{errors.serviceProvider}</FormHelperText>
             )}
           </ServiceProvider>
@@ -304,7 +297,7 @@ const RequestForm = () => {
           )}
         </Form>
       )}
-    />
+    </Formik>
   )
 }
 
