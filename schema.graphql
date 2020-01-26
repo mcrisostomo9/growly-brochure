@@ -346,26 +346,26 @@ type ImageSharpEdge {
 type ImageSharpFixed {
     aspectRatio: Float
     base64: String
-    height: Float
+    height: Float!
     originalName: String
-    src: String
-    srcSet: String
+    src: String!
+    srcSet: String!
     srcSetWebp: String
     srcWebp: String
     tracedSVG: String
-    width: Float
+    width: Float!
 }
 
 type ImageSharpFluid {
-    aspectRatio: Float
+    aspectRatio: Float!
     base64: String
     originalImg: String
     originalName: String
     presentationHeight: Int
     presentationWidth: Int
-    sizes: String
-    src: String
-    srcSet: String
+    sizes: String!
+    src: String!
+    srcSet: String!
     srcSetWebp: String
     srcWebp: String
     tracedSVG: String
@@ -398,26 +398,26 @@ type ImageSharpResize {
 type ImageSharpResolutions {
     aspectRatio: Float
     base64: String
-    height: Float
+    height: Float!
     originalName: String
-    src: String
-    srcSet: String
+    src: String!
+    srcSet: String!
     srcSetWebp: String
     srcWebp: String
     tracedSVG: String
-    width: Float
+    width: Float!
 }
 
 type ImageSharpSizes {
-    aspectRatio: Float
+    aspectRatio: Float!
     base64: String
     originalImg: String
     originalName: String
     presentationHeight: Int
     presentationWidth: Int
-    sizes: String
-    src: String
-    srcSet: String
+    sizes: String!
+    src: String!
+    srcSet: String!
     srcSetWebp: String
     srcWebp: String
     tracedSVG: String
@@ -453,7 +453,7 @@ type Query {
     directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
     file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): File
     imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput, resolutions: ImageSharpResolutionsFilterInput, sizes: ImageSharpSizesFilterInput): ImageSharp
-    site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, pathPrefix: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
+    site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
     sitePage(children: NodeFilterListInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, componentPath: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, internalComponentName: StringQueryOperatorInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput): SitePage
     sitePlugin(browserAPIs: StringQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, nodeAPIs: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput, parent: NodeFilterInput, pluginFilepath: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, resolve: StringQueryOperatorInput, ssrAPIs: StringQueryOperatorInput, version: StringQueryOperatorInput): SitePlugin
 }
@@ -474,8 +474,6 @@ type Site implements Node {
     id: ID!
     internal: Internal!
     parent: Node
-    pathPrefix: String
-    polyfill: Boolean
     port: Int
     siteMetadata: SiteSiteMetadata
 }
@@ -584,6 +582,7 @@ type SitePluginGroupConnection {
 }
 
 type SitePluginPackageJson {
+    author: String
     dependencies: [SitePluginPackageJsonDependencies]
     description: String
     devDependencies: [SitePluginPackageJsonDevDependencies]
@@ -611,6 +610,7 @@ type SitePluginPackageJsonPeerDependencies {
 }
 
 type SitePluginPluginOptions {
+    appElement: String
     background_color: String
     display: String
     icon: String
@@ -625,6 +625,7 @@ type SitePluginPluginOptions {
 type SiteSiteMetadata {
     author: String
     description: String
+    image: String
     title: String
 }
 
@@ -1231,11 +1232,10 @@ enum SiteFieldsEnum {
     parent___parent___internal___type
     parent___parent___parent___children
     parent___parent___parent___id
-    pathPrefix
-    polyfill
     port
     siteMetadata___author
     siteMetadata___description
+    siteMetadata___image
     siteMetadata___title
 }
 
@@ -1360,6 +1360,7 @@ enum SitePageFieldsEnum {
     pluginCreator___internal___type
     pluginCreator___name
     pluginCreator___nodeAPIs
+    pluginCreator___packageJson___author
     pluginCreator___packageJson___dependencies
     pluginCreator___packageJson___dependencies___name
     pluginCreator___packageJson___dependencies___version
@@ -1390,6 +1391,7 @@ enum SitePageFieldsEnum {
     pluginCreator___parent___parent___children
     pluginCreator___parent___parent___id
     pluginCreator___pluginFilepath
+    pluginCreator___pluginOptions___appElement
     pluginCreator___pluginOptions___background_color
     pluginCreator___pluginOptions___display
     pluginCreator___pluginOptions___icon
@@ -1456,6 +1458,7 @@ enum SitePluginFieldsEnum {
     internal___type
     name
     nodeAPIs
+    packageJson___author
     packageJson___dependencies
     packageJson___dependencies___name
     packageJson___dependencies___version
@@ -1510,6 +1513,7 @@ enum SitePluginFieldsEnum {
     parent___parent___parent___children
     parent___parent___parent___id
     pluginFilepath
+    pluginOptions___appElement
     pluginOptions___background_color
     pluginOptions___display
     pluginOptions___icon
@@ -1797,8 +1801,6 @@ input SiteFilterInput {
     id: StringQueryOperatorInput
     internal: InternalFilterInput
     parent: NodeFilterInput
-    pathPrefix: StringQueryOperatorInput
-    polyfill: BooleanQueryOperatorInput
     port: IntQueryOperatorInput
     siteMetadata: SiteSiteMetadataFilterInput
 }
@@ -1858,6 +1860,7 @@ input SitePluginPackageJsonDevDependenciesFilterListInput {
 }
 
 input SitePluginPackageJsonFilterInput {
+    author: StringQueryOperatorInput
     dependencies: SitePluginPackageJsonDependenciesFilterListInput
     description: StringQueryOperatorInput
     devDependencies: SitePluginPackageJsonDevDependenciesFilterListInput
@@ -1879,6 +1882,7 @@ input SitePluginPackageJsonPeerDependenciesFilterListInput {
 }
 
 input SitePluginPluginOptionsFilterInput {
+    appElement: StringQueryOperatorInput
     background_color: StringQueryOperatorInput
     display: StringQueryOperatorInput
     icon: StringQueryOperatorInput
@@ -1898,6 +1902,7 @@ input SitePluginSortInput {
 input SiteSiteMetadataFilterInput {
     author: StringQueryOperatorInput
     description: StringQueryOperatorInput
+    image: StringQueryOperatorInput
     title: StringQueryOperatorInput
 }
 
