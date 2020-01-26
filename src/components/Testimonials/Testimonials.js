@@ -171,7 +171,6 @@ const Testimonials = () => {
 
   return (
     <StyledSectionContainer>
-      <RequestForm />
       <StyledSectionTitle>Take their word for it</StyledSectionTitle>
       <StyledSectionSubtitle>
         Brands, agencies, and influencers love the growth
