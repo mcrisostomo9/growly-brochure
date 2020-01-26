@@ -112,7 +112,7 @@ const serviceProviderArray = [
   "Not listed, other",
 ]
 
-const RequestForm = ({ ref }) => {
+const RequestForm = () => {
   const { toggleRequestReceived } = useContext(Context)
 
   return (
