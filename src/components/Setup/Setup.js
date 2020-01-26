@@ -35,7 +35,7 @@ const Setup = () => {
     <StyledSectionContainer>
       <ContentContainer>
         <StyledSectionTitle>Set-up in Minutes</StyledSectionTitle>
-        <StyledSectionSubtitle>No Coding Required</StyledSectionSubtitle>
+        <StyledSectionSubtitle>No coding required</StyledSectionSubtitle>
         <SectionContent>
           We’re an easy to use referral program that integrates with your email
           marketing tool. With just a little input from you, we’ll help
