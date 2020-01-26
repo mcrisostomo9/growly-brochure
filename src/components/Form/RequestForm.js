@@ -1,7 +1,12 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import TextField from "@material-ui/core/TextField"
-import MenuItem from "@material-ui/core/MenuItem"
+import {
+  TextField,
+  NativeSelect,
+  InputLabel,
+  FormControl,
+  FormHelperText,
+} from "@material-ui/core"
 import { Formik } from "formik"
 import Button from "../Shared/Button"
 import { mediaQuery } from "../../utils/styles"
@@ -28,7 +33,7 @@ const Form = styled.form`
   }
 `
 
-const StyledMaterialSelect = styled(TextField)`
+const StyledMaterialTextField = styled(TextField)`
   .MuiFormLabel-root {
     color: var(--content-grey);
 
@@ -46,23 +51,39 @@ const StyledMaterialSelect = styled(TextField)`
   }
 `
 
-const Email = styled(StyledMaterialSelect)`
+const Email = styled(StyledMaterialTextField)`
   grid-area: email;
 `
 
-const Name = styled(StyledMaterialSelect)`
+const Name = styled(StyledMaterialTextField)`
   grid-area: name;
 `
 
-const Company = styled(StyledMaterialSelect)`
+const Company = styled(StyledMaterialTextField)`
   grid-area: company;
 `
 
-const Subscribers = styled(StyledMaterialSelect)`
+const Subscribers = styled(FormControl)`
+  .MuiFormLabel-root {
+    color: var(--content-grey);
+
+    &.Mui-focused {
+      color: var(--dark-grey);
+    }
+  }
+
+  .MuiInputBase-root {
+    color: var(--dark-grey);
+
+    &.MuiInput-underline:after {
+      border-color: 2px solid var(--dark-grey);
+    }
+  }
+
   grid-area: subscribers;
 `
 
-const ServiceProvider = styled(StyledMaterialSelect)`
+const ServiceProvider = styled(Subscribers)`
   grid-area: serviceProvider;
 `
 
@@ -92,6 +113,7 @@ export const encode = data => {
 }
 
 const serviceProviderArray = [
+  "Select email service provider",
   "Active Campaign",
   "AWeber",
   "Campaign Monitor",
@@ -114,7 +136,6 @@ const serviceProviderArray = [
 
 const RequestForm = () => {
   const { toggleRequestReceived } = useContext(Context)
-
   return (
     <Formik
       initialValues={{
@@ -122,7 +143,7 @@ const RequestForm = () => {
         name: "",
         company: "",
         subscribers: "500 - 2,000",
-        serviceProvider: "",
+        serviceProvider: "Select email service provider",
       }}
       validate={values => {
         let errors = {}
@@ -140,7 +161,7 @@ const RequestForm = () => {
         if (!values.company) {
           errors.company = "Please add in your company."
         }
-        if (!values.serviceProvider) {
+        if (values.serviceProvider === "Select email service provider") {
           errors.serviceProvider = "Please select your email service provider."
         }
 
@@ -219,45 +240,65 @@ const RequestForm = () => {
             error={touched.company && Boolean(errors.company)}
             helperText={touched.company ? errors.company : ""}
           />
-
-          <Subscribers
-            select
-            label="Subscribers"
-            name="subscribers"
-            value={values.subscribers}
-            onChange={handleChange}
-          >
-            <MenuItem value="500 - 2,000">500 - 2,000 subscribers</MenuItem>
-            <MenuItem value="2,001 - 10,00">2,000 - 10,00 subscribers</MenuItem>
-            <MenuItem value="10,001 - 50,000">
-              10,001 - 50,000 subscribers
-            </MenuItem>
-            <MenuItem value="50,001 - 100,000">
-              50,001 - 100,000 subscribers
-            </MenuItem>
-            <MenuItem value="100,001 - 250,000">
-              100,001 - 250,000 subscribers
-            </MenuItem>
-            <MenuItem value="250,001 - 500,000">
-              250,001 - 500,000 subscribers
-            </MenuItem>
-            <MenuItem value="500,000+">500,000+ subscribers</MenuItem>
+          <Subscribers>
+            <InputLabel shrink htmlFor="subscribers-native-label-placeholder">
+              Subscribers
+            </InputLabel>
+            <NativeSelect
+              label="Subscribers"
+              name="subscribers"
+              value={values.subscribers}
+              onChange={handleChange}
+              inputProps={{
+                name: "subscribers",
+                id: "subscribers-native-label-placeholder",
+              }}
+            >
+              <option value="500 - 2,000">500 - 2,000 subscribers</option>
+              <option value="2,001 - 10,00">2,000 - 10,00 subscribers</option>
+              <option value="10,001 - 50,000">
+                10,001 - 50,000 subscribers
+              </option>
+              <option value="50,001 - 100,000">
+                50,001 - 100,000 subscribers
+              </option>
+              <option value="100,001 - 250,000">
+                100,001 - 250,000 subscribers
+              </option>
+              <option value="250,001 - 500,000">
+                250,001 - 500,000 subscribers
+              </option>
+              <option value="500,000+">500,000+ subscribers</option>
+            </NativeSelect>
           </Subscribers>
-          <ServiceProvider
-            select
-            label="Service Provider"
-            name="serviceProvider"
-            value={values.serviceProvider}
-            onChange={handleChange}
-            error={touched.serviceProvider && Boolean(errors.serviceProvider)}
-            helperText={touched.serviceProvider ? errors.serviceProvider : ""}
-          >
-            <MenuItem value="">Select email service provider</MenuItem>
-            {serviceProviderArray.map(i => (
-              <MenuItem key={i} value={i}>
-                {i}
-              </MenuItem>
-            ))}
+          <ServiceProvider>
+            <InputLabel
+              shrink
+              htmlFor="service-provider-native-label-placeholder"
+            >
+              Service Provider
+            </InputLabel>
+            <NativeSelect
+              inputProps={{
+                name: "serviceProvider",
+                id: "service-provider-native-label-placeholder",
+              }}
+              label="Service Provider"
+              name="serviceProvider"
+              value={values.serviceProvider}
+              onChange={handleChange}
+              error={touched.serviceProvider && Boolean(errors.serviceProvider)}
+              helperText={touched.serviceProvider ? errors.serviceProvider : ""}
+            >
+              {serviceProviderArray.map(i => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </NativeSelect>
+            {errors.serviceProvider && (
+              <FormHelperText error>{errors.serviceProvider}</FormHelperText>
+            )}
           </ServiceProvider>
           <StyledButton text="request beta access" type="submit" />
           {status && status.errorMsg && (

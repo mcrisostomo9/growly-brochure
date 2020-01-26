@@ -105,7 +105,6 @@ const ReceivedSubtitle = styled(RequestSubtitle)`
 
 const SideNav = () => {
   const rootRef = useRef()
-  const formRef = useRef()
   const { isModalOpen, toggleModalOpen, isRequestReceived } = useContext(
     Context
   )
@@ -123,10 +122,9 @@ const SideNav = () => {
         return
       }
       // outside click
-      console.log(e.target)
 
       console.log("this is outside click")
-      // toggleModalOpen()
+      toggleModalOpen()
     },
     [toggleModalOpen]
   )
@@ -142,8 +140,6 @@ const SideNav = () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [isModalOpen, handleClickOutside])
-
-  console.log(`is modal open ${isModalOpen}`)
 
   return sideAnimation.map(
     ({ item, key, props }) =>
