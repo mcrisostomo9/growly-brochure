@@ -70,6 +70,7 @@ const TextContainer = styled.div`
   width: 100%;
   max-width: 500px;
   text-align: center;
+  margin: 0 auto;
 `
 
 const RequestTitle = styled.h2`

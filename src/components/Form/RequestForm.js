@@ -113,7 +113,7 @@ export const encode = data => {
 }
 
 const serviceProviderArray = [
-  "Select email service provider",
+  "Select your email service provider",
   "Active Campaign",
   "AWeber",
   "Campaign Monitor",
@@ -143,7 +143,7 @@ const RequestForm = () => {
         name: "",
         company: "",
         subscribers: "500 - 2,000",
-        serviceProvider: "Select email service provider",
+        serviceProvider: "Select your email service provider",
       }}
       validate={values => {
         let errors = {}
@@ -161,7 +161,7 @@ const RequestForm = () => {
         if (!values.company) {
           errors.company = "Please add in your company."
         }
-        if (values.serviceProvider === "Select email service provider") {
+        if (values.serviceProvider === "Select your email service provider") {
           errors.serviceProvider = "Please select your email service provider."
         }
 
@@ -245,7 +245,6 @@ const RequestForm = () => {
               Subscribers
             </InputLabel>
             <NativeSelect
-              label="Subscribers"
               name="subscribers"
               value={values.subscribers}
               onChange={handleChange}
@@ -283,7 +282,6 @@ const RequestForm = () => {
                 name: "serviceProvider",
                 id: "service-provider-native-label-placeholder",
               }}
-              label="Service Provider"
               name="serviceProvider"
               value={values.serviceProvider}
               onChange={handleChange}

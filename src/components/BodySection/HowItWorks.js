@@ -19,7 +19,7 @@ const HowItWorks = ({ howImage }) => {
     <HowItWorksSection>
       <SectionTitle>How it works</SectionTitle>
       <SectionSubtitle>
-        Works directly with favorite email service provider
+        Works directly with your favorite email service provider
       </SectionSubtitle>
       <StyledImg fluid={howImage.childImageSharp.fluid} />
     </HowItWorksSection>
