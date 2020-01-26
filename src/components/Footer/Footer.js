@@ -106,11 +106,11 @@ const SocialArray = [
 ]
 
 const Footer = () => {
-  const { toggleModalOpen } = useContext(Context)
+  const { toggleModalOpen, isModalOpen } = useContext(Context)
   const { logo } = useStaticQuery(FOOTER_QUERY)
 
   return (
-    <Root>
+    <Root isModalOpen={isModalOpen}>
       <StyledContentContainer>
         <StyledLink to="/">
           <Img fluid={logo.childImageSharp.fluid} alt="Growly Logo" />

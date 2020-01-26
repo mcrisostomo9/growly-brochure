@@ -19,6 +19,7 @@ const Root = styled(ContentContainer)`
   width: 100%;
   align-items: center;
   z-index: 1;
+  ${props => props.isModalOpen && "filter:blur(1px); opacity: .7;"};
 
   @media (min-width: ${mediaQuery.m768}) {
     padding: 1rem 3rem;
@@ -63,9 +64,9 @@ const HeaderButton = styled(Button)`
 `
 
 const Header = () => {
-  const { toggleModalOpen } = useContext(Context)
+  const { toggleModalOpen, isModalOpen } = useContext(Context)
   return (
-    <Root as="header">
+    <Root as="header" isModalOpen={isModalOpen}>
       <StyledLogo to="/">
         <Logo />
       </StyledLogo>
