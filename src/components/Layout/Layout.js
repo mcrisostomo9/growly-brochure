@@ -7,6 +7,7 @@ import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import { Context } from "../../context/Context"
 import SideNav from "../SideNav/SideNav"
+import SEO from "../seo"
 
 const Main = styled.main``
 
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
   const { isModalOpen } = useContext(Context)
   return (
     <>
+      <SEO />
       <Header />
       <Main isModalOpen={isModalOpen}>{children}</Main>
       <Footer />
