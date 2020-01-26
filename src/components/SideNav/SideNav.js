@@ -13,7 +13,7 @@ const Root = styled(animated.div)`
   top: 0;
   right: 0;
   height: 100%;
-  z-index: 49;
+  z-index: 50;
   overflow-y: auto;
   background: #fff;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
@@ -104,7 +104,8 @@ const ReceivedSubtitle = styled(RequestSubtitle)`
 `
 
 const SideNav = () => {
-  const node = useRef()
+  const rootRef = useRef()
+  const formRef = useRef()
   const { isModalOpen, toggleModalOpen, isRequestReceived } = useContext(
     Context
   )
@@ -117,12 +118,15 @@ const SideNav = () => {
 
   const handleClickOutside = useCallback(
     e => {
-      if (node.current.contains(e.target)) {
+      if (rootRef.current.contains(e.target)) {
         // inside click
         return
       }
       // outside click
-      toggleModalOpen()
+      console.log(e.target)
+
+      console.log("this is outside click")
+      // toggleModalOpen()
     },
     [toggleModalOpen]
   )
@@ -139,10 +143,12 @@ const SideNav = () => {
     }
   }, [isModalOpen, handleClickOutside])
 
+  console.log(`is modal open ${isModalOpen}`)
+
   return sideAnimation.map(
     ({ item, key, props }) =>
       item && (
-        <Root key={key} style={props} ref={node}>
+        <Root key={key} style={props} ref={rootRef}>
           <Img
             style={{ ...backgroundGatsbyImage, zIndex: 0 }}
             fluid={heroBg.childImageSharp.fluid}
