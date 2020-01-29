@@ -31,18 +31,10 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        id: "UA-157274111-1",
-
-        // Include GTM in development.
-        // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false,
-
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        // Defaults to null
-        defaultDataLayer: { platform: "gatsby" },
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "UA-157274111-1",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
