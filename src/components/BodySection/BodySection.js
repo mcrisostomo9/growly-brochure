@@ -12,17 +12,17 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const BodySection = () => {
-  const data = useStaticQuery(BODY_IMAGE_QUERY)
+  const { logo, bgImage } = useStaticQuery(BODY_IMAGE_QUERY)
 
   return (
     <StyledSectionContainer>
       <Img
         style={{ ...backgroundGatsbyImage }}
-        fluid={data.bgImage.childImageSharp.fluid}
+        fluid={bgImage.childImageSharp.fluid}
         backgroundColor="#fffafd"
       />
-      <Steps logo={data.logo} />
-      <HowItWorks howImage={data.howImage} />
+      <Steps logo={logo} />
+      <HowItWorks />
     </StyledSectionContainer>
   )
 }
@@ -32,13 +32,6 @@ export default BodySection
 export const BODY_IMAGE_QUERY = graphql`
   query BodyImageQuery {
     logo: file(relativePath: { eq: "large-logo.png" }) {
-      childImageSharp {
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    howImage: file(relativePath: { eq: "how-it-works.png" }) {
       childImageSharp {
         fluid(quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64

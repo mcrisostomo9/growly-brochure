@@ -1,7 +1,6 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import { mediaQuery } from "../../utils/styles"
-import { Context } from "../../context/Context"
 
 const Root = styled.button`
   display: inline-block;
