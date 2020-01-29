@@ -113,7 +113,7 @@ export const encode = data => {
 }
 
 const serviceProviderArray = [
-  "Select your email service provider",
+  "Select ESP",
   "Active Campaign",
   "AWeber",
   "Campaign Monitor",
@@ -143,7 +143,7 @@ const RequestForm = () => {
         name: "",
         company: "",
         subscribers: "500 - 2,000",
-        serviceProvider: "Select your email service provider",
+        serviceProvider: "Select ESP",
       }}
       validate={values => {
         let errors = {}
@@ -161,7 +161,7 @@ const RequestForm = () => {
         if (!values.company) {
           errors.company = "Please add in your company."
         }
-        if (values.serviceProvider === "Select your email service provider") {
+        if (values.serviceProvider === "Select ESP") {
           errors.serviceProvider = "Please select your email service provider."
         }
 
