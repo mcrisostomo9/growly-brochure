@@ -37,6 +37,14 @@ module.exports = {
         trackingId: "UA-157274111-1",
       },
     },
+    {
+      resolve: "gatsby-plugin-hubspot",
+      options: {
+        trackingCode: "7042197",
+        respectDNT: true,
+        productionOnly: true,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
